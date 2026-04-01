@@ -50,7 +50,7 @@ export function ListingDetail({
                     <SheetTitle>Property Details</SheetTitle>
                 </SheetHeader>
 
-                <div className="mt-6 flex flex-col gap-6 overflow-y-auto pb-6">
+                <div className="mt-6 flex flex-col gap-6 overflow-y-auto px-6 pb-6">
                     {/* Image carousel placeholder */}
                     <div className="aspect-video w-full rounded-lg bg-gradient-to-br from-primary/20 to-primary/5" />
 
