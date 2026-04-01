@@ -146,6 +146,13 @@ export function MapContainer({
                 }
             })
 
+            map.on("click", (e) => {
+                const target = e.originalEvent.target as HTMLElement
+                if (!target.closest(".maplibregl-marker")) {
+                    onListingSelectRef.current(null)
+                }
+            })
+
             map.on("load", () => {
                 listings.forEach((listing) => {
                     const el = createMarkerElement(listing, false)
