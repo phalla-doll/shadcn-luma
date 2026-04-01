@@ -1,10 +1,12 @@
 "use client"
 
 import * as React from "react"
+import { createRoot, type Root } from "react-dom/client"
 import maplibregl from "maplibre-gl"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 import { listings, type Listing } from "@/components/data/listings"
+import { ListingPopup } from "./listing-popup"
 
 const CARTO_LIGHT_STYLE =
     "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
@@ -46,6 +48,7 @@ const createMarkerElement = (listing: Listing, isSelected: boolean) => {
 type MapContainerProps = {
     selectedListing: Listing | null
     onListingSelect: (listing: Listing | null) => void
+    onViewDetails: () => void
     flyToCoordinates?: [number, number] | null
     flyToZoom?: number
 } & React.ComponentProps<"div">
@@ -53,6 +56,7 @@ type MapContainerProps = {
 export function MapContainer({
     selectedListing,
     onListingSelect,
+    onViewDetails,
     flyToCoordinates,
     flyToZoom = 13,
     className,
@@ -61,10 +65,13 @@ export function MapContainer({
     const mapContainer = React.useRef<HTMLDivElement>(null)
     const mapRef = React.useRef<maplibregl.Map | null>(null)
     const markersRef = React.useRef<Map<string, maplibregl.Marker>>(new Map())
+    const popupRef = React.useRef<maplibregl.Popup | null>(null)
+    const popupRootRef = React.useRef<Root | null>(null)
     const [tileError, setTileError] = React.useState(false)
     const { resolvedTheme } = useTheme()
     const themeRef = React.useRef(resolvedTheme)
     const onListingSelectRef = React.useRef(onListingSelect)
+    const onViewDetailsRef = React.useRef(onViewDetails)
 
     React.useEffect(() => {
         themeRef.current = resolvedTheme
@@ -73,6 +80,10 @@ export function MapContainer({
     React.useEffect(() => {
         onListingSelectRef.current = onListingSelect
     }, [onListingSelect])
+
+    React.useEffect(() => {
+        onViewDetailsRef.current = onViewDetails
+    }, [onViewDetails])
 
     React.useEffect(() => {
         if (!mapContainer.current) return
@@ -101,11 +112,6 @@ export function MapContainer({
 
                     markerEl.addEventListener("click", () => {
                         onListingSelectRef.current(listing)
-                        map.flyTo({
-                            center: listing.coordinates,
-                            zoom: 15,
-                            essential: true,
-                        })
                     })
 
                     const marker = new maplibregl.Marker({
@@ -161,6 +167,65 @@ export function MapContainer({
                 el.classList.remove("ring-2", "ring-primary")
             }
         })
+    }, [selectedListing])
+
+    // Fly to and show popup for selected listing
+    React.useEffect(() => {
+        const map = mapRef.current
+        if (!map) return
+
+        if (popupRootRef.current) {
+            popupRootRef.current.unmount()
+            popupRootRef.current = null
+        }
+        if (popupRef.current) {
+            popupRef.current.remove()
+            popupRef.current = null
+        }
+
+        if (selectedListing) {
+            map.flyTo({
+                center: selectedListing.coordinates,
+                zoom: 15,
+                essential: true,
+            })
+
+            const popupContent = document.createElement("div")
+            const root = createRoot(popupContent)
+            popupRootRef.current = root
+
+            root.render(
+                <ListingPopup
+                    listing={selectedListing}
+                    onViewDetails={() => onViewDetailsRef.current()}
+                />
+            )
+
+            const popup = new maplibregl.Popup({
+                className: "listing-popup",
+                closeButton: false,
+                closeOnClick: false,
+                maxWidth: "300px",
+                offset: 20,
+                anchor: "bottom",
+            })
+                .setLngLat(selectedListing.coordinates)
+                .setDOMContent(popupContent)
+                .addTo(map)
+
+            popupRef.current = popup
+        }
+
+        return () => {
+            const root = popupRootRef.current
+            const popup = popupRef.current
+            popupRootRef.current = null
+            popupRef.current = null
+            queueMicrotask(() => {
+                root?.unmount()
+                popup?.remove()
+            })
+        }
     }, [selectedListing])
 
     // Fly to coordinates when search location changes

@@ -27,9 +27,6 @@ export default function Page() {
 
     const handleListingSelect = React.useCallback((listing: Listing | null) => {
         setSelectedListing(listing)
-        if (listing) {
-            setDetailOpen(true)
-        }
     }, [])
 
     const handleLocationSelect = React.useCallback((location: Location) => {
@@ -38,11 +35,12 @@ export default function Page() {
         setSelectedListing(null)
     }, [])
 
+    const handleViewDetails = React.useCallback(() => {
+        setDetailOpen(true)
+    }, [])
+
     const handleDetailOpenChange = React.useCallback((open: boolean) => {
         setDetailOpen(open)
-        if (!open) {
-            setSelectedListing(null)
-        }
     }, [])
 
     return (
@@ -51,6 +49,7 @@ export default function Page() {
             <MapContainer
                 selectedListing={selectedListing}
                 onListingSelect={handleListingSelect}
+                onViewDetails={handleViewDetails}
                 flyToCoordinates={flyToCoordinates}
                 flyToZoom={flyToZoom}
             />
