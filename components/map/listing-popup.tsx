@@ -27,7 +27,7 @@ export function ListingPopup({ listing, onViewDetails }: ListingPopupProps) {
     }
 
     return (
-        <div className="w-[280px] space-y-2 rounded-lg bg-popover p-3 text-popover-foreground">
+        <div className="w-full space-y-3">
             <div className="aspect-video w-full rounded-md bg-gradient-to-br from-primary/20 to-primary/5" />
 
             <div className="flex items-center justify-between">

@@ -1,11 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { createRoot, type Root } from "react-dom/client"
 import maplibregl from "maplibre-gl"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 import { listings, type Listing } from "@/components/data/listings"
+import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover"
 import { ListingPopup } from "./listing-popup"
 
 const CARTO_LIGHT_STYLE =
@@ -63,15 +63,17 @@ export function MapContainer({
     ...props
 }: MapContainerProps) {
     const mapContainer = React.useRef<HTMLDivElement>(null)
+    const wrapperRef = React.useRef<HTMLDivElement>(null)
     const mapRef = React.useRef<maplibregl.Map | null>(null)
     const markersRef = React.useRef<Map<string, maplibregl.Marker>>(new Map())
-    const popupRef = React.useRef<maplibregl.Popup | null>(null)
-    const popupRootRef = React.useRef<Root | null>(null)
     const [tileError, setTileError] = React.useState(false)
+    const [popupPosition, setPopupPosition] = React.useState<{
+        x: number
+        y: number
+    } | null>(null)
     const { resolvedTheme } = useTheme()
     const themeRef = React.useRef(resolvedTheme)
     const onListingSelectRef = React.useRef(onListingSelect)
-    const onViewDetailsRef = React.useRef(onViewDetails)
 
     React.useEffect(() => {
         themeRef.current = resolvedTheme
@@ -80,10 +82,6 @@ export function MapContainer({
     React.useEffect(() => {
         onListingSelectRef.current = onListingSelect
     }, [onListingSelect])
-
-    React.useEffect(() => {
-        onViewDetailsRef.current = onViewDetails
-    }, [onViewDetails])
 
     React.useEffect(() => {
         if (!mapContainer.current) return
@@ -169,19 +167,10 @@ export function MapContainer({
         })
     }, [selectedListing])
 
-    // Fly to and show popup for selected listing
+    // Track popup position and fly to selected listing
     React.useEffect(() => {
         const map = mapRef.current
         if (!map) return
-
-        if (popupRootRef.current) {
-            popupRootRef.current.unmount()
-            popupRootRef.current = null
-        }
-        if (popupRef.current) {
-            popupRef.current.remove()
-            popupRef.current = null
-        }
 
         if (selectedListing) {
             map.flyTo({
@@ -190,41 +179,20 @@ export function MapContainer({
                 essential: true,
             })
 
-            const popupContent = document.createElement("div")
-            const root = createRoot(popupContent)
-            popupRootRef.current = root
+            const updatePosition = () => {
+                const point = map.project(selectedListing.coordinates)
+                setPopupPosition({ x: point.x, y: point.y })
+            }
 
-            root.render(
-                <ListingPopup
-                    listing={selectedListing}
-                    onViewDetails={() => onViewDetailsRef.current()}
-                />
-            )
+            updatePosition()
+            map.on("move", updatePosition)
 
-            const popup = new maplibregl.Popup({
-                className: "listing-popup",
-                closeButton: false,
-                closeOnClick: false,
-                maxWidth: "300px",
-                offset: 20,
-                anchor: "bottom",
-            })
-                .setLngLat(selectedListing.coordinates)
-                .setDOMContent(popupContent)
-                .addTo(map)
-
-            popupRef.current = popup
-        }
-
-        return () => {
-            const root = popupRootRef.current
-            const popup = popupRef.current
-            popupRootRef.current = null
-            popupRef.current = null
-            queueMicrotask(() => {
-                root?.unmount()
-                popup?.remove()
-            })
+            return () => {
+                map.off("move", updatePosition)
+                setPopupPosition(null)
+            }
+        } else {
+            setPopupPosition(null)
         }
     }, [selectedListing])
 
@@ -239,8 +207,10 @@ export function MapContainer({
         }
     }, [flyToCoordinates, flyToZoom])
 
+    const popoverOpen = !!selectedListing && !!popupPosition
+
     return (
-        <div className="relative h-full w-full">
+        <div ref={wrapperRef} className="relative h-full w-full">
             {tileError && (
                 <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/80 backdrop-blur-sm">
                     <p className="text-sm text-muted-foreground">
@@ -254,6 +224,42 @@ export function MapContainer({
                 className={cn("h-full w-full", className)}
                 {...props}
             />
+
+            <Popover
+                open={popoverOpen}
+                onOpenChange={(open) => {
+                    if (!open) onListingSelect(null)
+                }}
+            >
+                {popupPosition && (
+                    <PopoverAnchor
+                        className="absolute z-20 size-0"
+                        style={{
+                            left: popupPosition.x,
+                            top: popupPosition.y,
+                        }}
+                    />
+                )}
+                <PopoverContent
+                    side="top"
+                    sideOffset={24}
+                    align="center"
+                    className="pointer-events-auto w-[280px]"
+                    onInteractOutside={(e) => {
+                        const target = e.target as HTMLElement
+                        if (target.closest(".maplibregl-marker")) {
+                            e.preventDefault()
+                        }
+                    }}
+                >
+                    {selectedListing && (
+                        <ListingPopup
+                            listing={selectedListing}
+                            onViewDetails={onViewDetails}
+                        />
+                    )}
+                </PopoverContent>
+            </Popover>
         </div>
     )
 }
