@@ -133,7 +133,7 @@ export function MapContainer({
             map = new maplibregl.Map({
                 container: mapContainer.current,
                 style,
-                center: [-122.4194, 37.7749],
+                center: [104.9282, 11.5564],
                 zoom: 12,
             })
 
