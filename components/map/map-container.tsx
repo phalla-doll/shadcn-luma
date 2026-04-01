@@ -5,7 +5,6 @@ import maplibregl from "maplibre-gl"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 import { listings, type Listing } from "@/components/data/listings"
-import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover"
 import { ListingPopup } from "./listing-popup"
 
 const CARTO_LIGHT_STYLE =
@@ -71,6 +70,17 @@ export function MapContainer({
         x: number
         y: number
     } | null>(null)
+    const [displayListing, setDisplayListing] = React.useState<Listing | null>(
+        null
+    )
+    const [isExiting, setIsExiting] = React.useState(false)
+    const [exitPosition, setExitPosition] = React.useState<{
+        x: number
+        y: number
+    } | null>(null)
+    const exitTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+        null
+    )
     const { resolvedTheme } = useTheme()
     const themeRef = React.useRef(resolvedTheme)
     const onListingSelectRef = React.useRef(onListingSelect)
@@ -84,62 +94,86 @@ export function MapContainer({
     }, [onListingSelect])
 
     React.useEffect(() => {
+        if (exitTimerRef.current) {
+            clearTimeout(exitTimerRef.current)
+            exitTimerRef.current = null
+        }
+
+        if (selectedListing) {
+            setDisplayListing(selectedListing)
+            setIsExiting(false)
+        } else if (displayListing) {
+            setIsExiting(true)
+            exitTimerRef.current = setTimeout(() => {
+                setDisplayListing(null)
+                setIsExiting(false)
+                setExitPosition(null)
+            }, 200)
+        }
+
+        return () => {
+            if (exitTimerRef.current) {
+                clearTimeout(exitTimerRef.current)
+            }
+        }
+    }, [selectedListing, displayListing])
+
+    // Initialize map
+    React.useEffect(() => {
         if (!mapContainer.current) return
 
-        const styleUrl =
+        const initialStyleUrl =
             themeRef.current === "dark" ? CARTO_DARK_STYLE : CARTO_LIGHT_STYLE
 
-        let cancelled = false
+        let map: maplibregl.Map
 
-        loadStyle(styleUrl).then((style) => {
-            if (cancelled || !mapContainer.current) return
+        loadStyle(initialStyleUrl).then((style) => {
+            if (!mapContainer.current) return
 
-            const map = new maplibregl.Map({
+            map = new maplibregl.Map({
                 container: mapContainer.current,
                 style,
-                center: [104.9282, 11.5564],
+                center: [-122.4194, 37.7749],
                 zoom: 12,
-                attributionControl: false,
             })
 
-            map.addControl(new maplibregl.NavigationControl(), "bottom-right")
+            mapRef.current = map
+
+            map.on("error", (e) => {
+                const err = e.error as { status?: number } | undefined
+                if (err && err.status && err.status !== 200) {
+                    setTileError(true)
+                }
+            })
 
             map.on("load", () => {
                 listings.forEach((listing) => {
-                    const markerEl = createMarkerElement(listing, false)
-
-                    markerEl.addEventListener("click", () => {
-                        onListingSelectRef.current(listing)
-                    })
-
+                    const el = createMarkerElement(listing, false)
                     const marker = new maplibregl.Marker({
-                        element: markerEl,
+                        element: el,
                         anchor: "center",
                     })
                         .setLngLat(listing.coordinates)
                         .addTo(map)
 
+                    el.addEventListener("click", (e) => {
+                        e.stopPropagation()
+                        onListingSelectRef.current(listing)
+                    })
+
                     markersRef.current.set(listing.id, marker)
                 })
             })
-
-            map.on("click", (e) => {
-                const features = map.queryRenderedFeatures(e.point)
-                if (features.length === 0) {
-                    onListingSelectRef.current(null)
-                }
-            })
-
-            map.on("error", () => {
-                setTileError(true)
-            })
-
-            mapRef.current = map
         })
 
+        const currentMarkers = markersRef.current
+
         return () => {
-            cancelled = true
-            mapRef.current?.remove()
+            currentMarkers.forEach((marker) => {
+                marker.remove()
+            })
+            currentMarkers.clear()
+            map?.remove()
             mapRef.current = null
         }
     }, [])
@@ -181,7 +215,9 @@ export function MapContainer({
 
             const updatePosition = () => {
                 const point = map.project(selectedListing.coordinates)
-                setPopupPosition({ x: point.x, y: point.y })
+                const pos = { x: point.x, y: point.y }
+                setPopupPosition(pos)
+                setExitPosition(pos)
             }
 
             updatePosition()
@@ -207,8 +243,6 @@ export function MapContainer({
         }
     }, [flyToCoordinates, flyToZoom])
 
-    const popoverOpen = !!selectedListing && !!popupPosition
-
     return (
         <div ref={wrapperRef} className="relative h-full w-full">
             {tileError && (
@@ -225,41 +259,41 @@ export function MapContainer({
                 {...props}
             />
 
-            <Popover
-                open={popoverOpen}
-                onOpenChange={(open) => {
-                    if (!open) onListingSelect(null)
-                }}
-            >
-                {popupPosition && (
-                    <PopoverAnchor
-                        className="absolute z-20 size-0"
-                        style={{
-                            left: popupPosition.x,
-                            top: popupPosition.y,
-                        }}
-                    />
-                )}
-                <PopoverContent
-                    side="top"
-                    sideOffset={24}
-                    align="center"
-                    className="pointer-events-auto w-[280px]"
-                    onInteractOutside={(e) => {
-                        const target = e.target as HTMLElement
-                        if (target.closest(".maplibregl-marker")) {
-                            e.preventDefault()
-                        }
-                    }}
-                >
-                    {selectedListing && (
-                        <ListingPopup
-                            listing={selectedListing}
-                            onViewDetails={onViewDetails}
-                        />
-                    )}
-                </PopoverContent>
-            </Popover>
+            {displayListing &&
+                (popupPosition || isExiting) &&
+                (() => {
+                    const pos = isExiting ? exitPosition : popupPosition
+                    if (!pos) return null
+                    return (
+                        <div
+                            className={cn(
+                                "pointer-events-auto absolute z-50 flex w-[280px] origin-(--radix-popover-content-transform-origin) flex-col gap-4 rounded-3xl bg-popover p-4 text-sm text-popover-foreground shadow-lg ring-1 ring-foreground/5 outline-hidden dark:ring-foreground/10",
+                                isExiting
+                                    ? "animate-out duration-200 fade-out-0 zoom-out-95"
+                                    : "animate-in duration-200 fade-in-0 zoom-in-95"
+                            )}
+                            style={{
+                                left: pos.x,
+                                top: pos.y,
+                                transform:
+                                    "translate(-50%, calc(-100% - 12px))",
+                                transition: isExiting
+                                    ? undefined
+                                    : "left 200ms ease-out, top 200ms ease-out",
+                            }}
+                        >
+                            <div
+                                key={displayListing.id}
+                                className="animate-in duration-200 fade-in-0"
+                            >
+                                <ListingPopup
+                                    listing={displayListing}
+                                    onViewDetails={onViewDetails}
+                                />
+                            </div>
+                        </div>
+                    )
+                })()}
         </div>
     )
 }
