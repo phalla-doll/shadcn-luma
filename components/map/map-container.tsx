@@ -36,7 +36,7 @@ const formatPrice = (price: number) => {
 const createMarkerElement = (listing: Listing, isSelected: boolean) => {
     const el = document.createElement("div")
     el.className = cn(
-        "cursor-pointer rounded-full bg-popover px-3 py-1.5 text-sm font-semibold text-popover-foreground shadow-md transition-transform hover:scale-110",
+        "pointer-events-auto cursor-pointer rounded-full bg-popover px-3 py-1.5 text-sm font-semibold text-popover-foreground shadow-md transition-shadow hover:z-50 hover:shadow-lg",
         isSelected && "ring-2 ring-primary"
     )
     el.textContent = formatPrice(listing.price)
@@ -110,7 +110,7 @@ export function MapContainer({
 
                     const marker = new maplibregl.Marker({
                         element: markerEl,
-                        anchor: "bottom",
+                        anchor: "center",
                     })
                         .setLngLat(listing.coordinates)
                         .addTo(map)
