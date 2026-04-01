@@ -31,6 +31,21 @@ Introducing Luma, a new shadcn/ui style inspired by macOS Tahoe (minus the glass
 
 `accordion` `alert` `alert-dialog` `aspect-ratio` `avatar` `badge` `breadcrumb` `button` `button-group` `calendar` `card` `carousel` `chart` `checkbox` `collapsible` `combobox` `command` `context-menu` `dialog` `direction` `drawer` `dropdown-menu` `empty` `field` `hover-card` `input` `input-group` `input-otp` `item` `kbd` `label` `menubar` `native-select` `navigation-menu` `pagination` `popover` `progress` `radio-group` `resizable` `scroll-area` `select` `separator` `sheet` `sidebar` `skeleton` `slider` `sonner` `spinner` `switch` `table` `tabs` `textarea` `toggle` `toggle-group` `tooltip`
 
+## Agent Skills
+
+This project includes a built-in [shadcn agent skill](./.agents/skills/shadcn/SKILL.md) that provides AI coding assistants with context-aware rules for working with shadcn/ui components.
+
+The skill includes:
+
+- **Styling rules** — Guidelines for working with Tailwind CSS and the Luma theme
+- **Form patterns** — Best practices for form components
+- **Composition** — How to compose components together
+- **Icons** — Usage patterns for Hugeicons
+- **Base vs Radix** — When to use Base UI vs Radix UI primitives
+- **CLI reference** — shadcn CLI commands
+
+The skill is pinned in `skills-lock.json` for reproducibility.
+
 ## Getting Started
 
 ```bash
