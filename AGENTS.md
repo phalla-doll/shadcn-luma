@@ -24,6 +24,18 @@ npx shadcn@latest docs <component>  # Get component docs & examples
 npx shadcn@latest search -q "term"  # Search registries
 ```
 
+**Shadcn Best Practices:**
+
+When working with shadcn/ui components, always follow the official documentation:
+
+- **Check installed components first** — look in `components/ui/` before adding new ones
+- **Use `npx shadcn@latest docs <component>`** to get official docs, examples, and API references before writing or modifying component code
+- **Use `npx shadcn@latest search`** to find existing components before building custom UI
+- **Use built-in variants** (`variant`, `size`) before writing custom className overrides
+- **Compose components** rather than reinventing — e.g., settings page = Tabs + Card + form controls
+- **Review added components** — after `npx shadcn@latest add`, read the files and fix any icon imports to use Hugeicons (not lucide-react)
+- **Use the `shadcn` skill** for component docs, usage examples, and registry search
+
 **Testing:** No test framework is configured. No tests exist yet.
 
 ## Running a Single Test
