@@ -5,7 +5,7 @@ import dynamic from "next/dynamic"
 import { type Listing } from "@/components/data/listings"
 import { type Location } from "@/components/data/locations"
 import { SearchBar } from "@/components/search/search-bar"
-import { ListingsDrawer } from "@/components/listings/listings-drawer"
+import { ListingsSheet } from "@/components/listings/listings-sheet"
 import { ListingDetail } from "@/components/listings/listing-detail"
 
 const MapContainer = dynamic(
@@ -58,8 +58,8 @@ export default function Page() {
             {/* Search bar */}
             <SearchBar onLocationSelect={handleLocationSelect} />
 
-            {/* Listings drawer */}
-            <ListingsDrawer
+            {/* Listings sheet */}
+            <ListingsSheet
                 selectedListing={selectedListing}
                 onListingSelect={handleListingSelect}
             />

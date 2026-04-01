@@ -35,7 +35,7 @@ export function ListingCard({
     return (
         <button
             className={cn(
-                "flex w-[280px] cursor-pointer flex-col gap-2 rounded-lg border bg-card p-2 text-left shadow-sm transition-all hover:shadow-md",
+                "flex w-full cursor-pointer flex-col gap-2 rounded-lg border bg-card p-2 text-left shadow-sm transition-all hover:shadow-md",
                 isSelected && "ring-2 ring-primary",
                 className
             )}
