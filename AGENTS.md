@@ -48,10 +48,20 @@ No test runner is installed. If tests are added in the future, configure vitest 
 app/                    # Next.js App Router pages and layouts
   globals.css           # Global styles, CSS variables, Tailwind v4 theme
   layout.tsx            # Root layout with ThemeProvider
-  page.tsx              # Home page
+  page.tsx              # Home page (hero + component showcase + map)
+  component-showcase/   # 35+ interactive card examples
+    cards/              # Individual card specimen components
+    index.tsx           # Showcase grid layout
+  map/                  # Standalone map page
 components/
-  ui/                   # 55 shadcn/ui components (button, dialog, etc.)
+  ui/                   # 55+ shadcn/ui components (button, dialog, etc.)
+  data/                 # Mock data (listings, locations)
+  listings/             # Listing card, detail, and sheet components
+  map/                  # Map container, marker, and popup components
+  search/               # Search bar component
   theme-provider.tsx    # Dark/light mode provider
+  map-section.tsx       # Map section for the home page
+  logo.tsx              # Project logo component
 hooks/                  # Custom React hooks (use-mobile.ts)
 lib/
   utils.ts              # cn() utility (clsx + tailwind-merge)

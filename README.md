@@ -15,36 +15,41 @@ Introducing Luma, a new shadcn/ui style inspired by macOS Tahoe (minus the glass
 
 ## Tech Stack
 
-| Layer       | Technology                                                          |
-| ----------- | ------------------------------------------------------------------- |
-| Framework   | [Next.js 16](https://nextjs.org/) with Turbopack                    |
-| Styling     | [Tailwind CSS v4](https://tailwindcss.com/)                         |
-| Primitives  | [Radix UI](https://radix-ui.com/) + [Base UI](https://base-ui.com/) |
-| Icons       | [Hugeicons](https://hugeicons.com/)                                 |
-| Language    | [TypeScript](https://www.typescriptlang.org/)                       |
-| Font        | [Geist](https://vercel.com/font)                                    |
-| Color space | oklch                                                               |
+| Layer       | Technology                                                                 |
+| ----------- | -------------------------------------------------------------------------- |
+| Framework   | [Next.js 16](https://nextjs.org/) with Turbopack                           |
+| Styling     | [Tailwind CSS v4](https://tailwindcss.com/)                                |
+| Primitives  | [Radix UI](https://radix-ui.com/) + [Base UI](https://base-ui.com/)        |
+| Icons       | [Hugeicons](https://hugeicons.com/)                                        |
+| Language    | [TypeScript](https://www.typescriptlang.org/)                              |
+| Font        | [Geist](https://vercel.com/font)                                           |
+| Color space | oklch                                                                      |
+| Maps        | [MapLibre GL](https://maplibre.org/) + [Protomaps](https://protomaps.com/) |
 
 ## Components
 
-55 components are available in `components/ui/`:
+55+ production-grade components are available in `components/ui/`:
 
 `accordion` `alert` `alert-dialog` `aspect-ratio` `avatar` `badge` `breadcrumb` `button` `button-group` `calendar` `card` `carousel` `chart` `checkbox` `collapsible` `combobox` `command` `context-menu` `dialog` `direction` `drawer` `dropdown-menu` `empty` `field` `hover-card` `input` `input-group` `input-otp` `item` `kbd` `label` `menubar` `native-select` `navigation-menu` `pagination` `popover` `progress` `radio-group` `resizable` `scroll-area` `select` `separator` `sheet` `sidebar` `skeleton` `slider` `sonner` `spinner` `switch` `table` `tabs` `textarea` `toggle` `toggle-group` `tooltip`
 
+## What's Inside
+
+### Component Showcase
+
+35+ interactive card examples in `app/component-showcase/` demonstrating real-world shadcn/ui composition patterns — forms, data displays, settings panels, empty states, and more. Every specimen is interactive.
+
+### Interactive Map
+
+A full map experience powered by MapLibre GL and Protomaps (`/map`), with searchable listings, popups, and detail sheets — showcasing how shadcn/ui components compose with complex features.
+
 ## Agent Skills
 
-This project includes a built-in [shadcn agent skill](./.agents/skills/shadcn/SKILL.md) that provides AI coding assistants with context-aware rules for working with shadcn/ui components.
+This project includes built-in agent skills that provide AI coding assistants with context-aware rules:
 
-The skill includes:
+- **[shadcn](./.agents/skills/shadcn/SKILL.md)** — Guidelines for working with shadcn/ui components: styling rules, form patterns, composition, icons, Base vs Radix primitives, and CLI reference.
+- **[frontend-design](./.agents/skills/frontend-design/SKILL.md)** — Design principles and workflows for creating production-grade frontend interfaces.
 
-- **Styling rules** — Guidelines for working with Tailwind CSS and the Luma theme
-- **Form patterns** — Best practices for form components
-- **Composition** — How to compose components together
-- **Icons** — Usage patterns for Hugeicons
-- **Base vs Radix** — When to use Base UI vs Radix UI primitives
-- **CLI reference** — shadcn CLI commands
-
-The skill is pinned in `skills-lock.json` for reproducibility.
+Both skills are pinned in `skills-lock.json` for reproducibility.
 
 ## Getting Started
 
@@ -56,6 +61,8 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000). Press `d` to toggle dark mode.
+
+The map demo is also available at [`/map`](http://localhost:3000/map).
 
 ## Adding Components
 
