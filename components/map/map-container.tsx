@@ -132,7 +132,7 @@ export function MapContainer({
                 container: mapContainer.current,
                 style,
                 center: [104.9282, 11.5564],
-                zoom: 12,
+                zoom: 15,
             })
 
             mapRef.current = map
