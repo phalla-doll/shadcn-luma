@@ -53,11 +53,11 @@ function MapSection({ className }: { className?: string }) {
                 flyToZoom={flyToZoom}
             />
 
-            <SearchBar onLocationSelect={handleLocationSelect} />
+            <SearchBar onLocationSelectAction={handleLocationSelect} />
 
             <ListingsSheet
                 selectedListing={selectedListing}
-                onListingSelect={handleListingSelect}
+                onListingSelectAction={handleListingSelect}
             />
 
             <ListingDetail

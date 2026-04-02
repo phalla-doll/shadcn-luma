@@ -274,7 +274,7 @@ export function MapContainer({
                     return (
                         <div
                             className={cn(
-                                "pointer-events-auto absolute z-50 flex w-[280px] origin-(--radix-popover-content-transform-origin) flex-col gap-4 rounded-3xl bg-popover p-4 text-sm text-popover-foreground shadow-lg ring-1 ring-foreground/5 outline-hidden dark:ring-foreground/10",
+                                "pointer-events-auto absolute z-50 flex w-70 origin-(--radix-popover-content-transform-origin) flex-col gap-4 rounded-3xl bg-popover p-4 text-sm text-popover-foreground shadow-lg ring-1 ring-foreground/5 outline-hidden dark:ring-foreground/10",
                                 isExiting
                                     ? "animate-out duration-200 fade-out-0 zoom-out-95"
                                     : "animate-in duration-200 fade-in-0 zoom-in-95"

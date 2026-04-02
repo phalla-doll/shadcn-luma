@@ -16,12 +16,12 @@ import { ListViewIcon } from "@hugeicons/core-free-icons"
 
 type ListingsSheetProps = {
     selectedListing: Listing | null
-    onListingSelect: (listing: Listing) => void
+    onListingSelectAction: (listing: Listing) => void
 }
 
 export function ListingsSheet({
     selectedListing,
-    onListingSelect,
+    onListingSelectAction,
 }: ListingsSheetProps) {
     const [open, setOpen] = React.useState(false)
 
@@ -56,7 +56,7 @@ export function ListingsSheet({
                                 listing={listing}
                                 isSelected={selectedListing?.id === listing.id}
                                 onClick={() => {
-                                    onListingSelect(listing)
+                                    onListingSelectAction(listing)
                                     setOpen(false)
                                 }}
                             />

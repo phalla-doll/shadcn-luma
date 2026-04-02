@@ -20,10 +20,10 @@ import { MapPinIcon, SearchIcon } from "@hugeicons/core-free-icons"
 import { locations, type Location } from "@/components/data/locations"
 
 type SearchBarProps = {
-    onLocationSelect: (location: Location) => void
+    onLocationSelectAction: (location: Location) => void
 }
 
-export function SearchBar({ onLocationSelect }: SearchBarProps) {
+export function SearchBar({ onLocationSelectAction }: SearchBarProps) {
     const [open, setOpen] = React.useState(false)
     const [selected, setSelected] = React.useState<Location | null>(null)
     const [query, setQuery] = React.useState("")
@@ -70,7 +70,7 @@ export function SearchBar({ onLocationSelect }: SearchBarProps) {
                                         value={location.name}
                                         onSelect={() => {
                                             setSelected(location)
-                                            onLocationSelect(location)
+                                            onLocationSelectAction(location)
                                             setOpen(false)
                                         }}
                                     >
