@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 
-import Preview02Example from "@/app/preview-02/index"
+import ComponentShowcase from "@/app/component-showcase/index"
 import { MapSection } from "@/components/map-section"
 import { Kbd } from "@/components/ui/kbd"
 
@@ -114,7 +114,7 @@ export default function Page() {
             </div>
 
             <div id="components" className="mb-2">
-                <Preview02Example />
+                <ComponentShowcase />
             </div>
 
             <div className="bg-muted/50 p-6 md:p-10">
