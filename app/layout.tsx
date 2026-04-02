@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         title: "UI",
         description:
             "Build interfaces people actually want to use. Production-grade components built with shadcn/ui, Radix, and Tailwind CSS v4.",
-        url: "https://ui.dev",
+        url: "https://ui.manthaa.dev/",
         siteName: "UI",
         images: [
             {
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
             "Build interfaces people actually want to use. Production-grade components built with shadcn/ui, Radix, and Tailwind CSS v4.",
         images: ["/logo-512.svg"],
     },
-    metadataBase: new URL("https://ui.dev"),
+    metadataBase: new URL("https://ui.manthaa.dev/"),
 }
 
 export const viewport: Viewport = {
