@@ -16,6 +16,7 @@ import { Logo } from "@/components/logo"
 
 import Preview02Example from "@/app/preview-02/index"
 import { MapSection } from "@/components/map-section"
+import { Kbd } from "@/components/ui/kbd"
 
 function ThemeToggle() {
     const { resolvedTheme, setTheme } = useTheme()
@@ -56,24 +57,7 @@ export default function Page() {
                 <header className="flex items-center justify-between">
                     <Logo />
                     <nav className="flex items-center gap-1">
-                        <Button variant="ghost" size="sm">
-                            Docs
-                        </Button>
-                        <Button variant="ghost" size="sm">
-                            Components
-                        </Button>
-                        <Button variant="ghost" size="icon-sm" asChild>
-                            <a
-                                href="https://github.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <HugeiconsIcon
-                                    icon={GithubIcon}
-                                    strokeWidth={2}
-                                />
-                            </a>
-                        </Button>
+                        <p className="font-mono text-sm tracking-tight">Press <Kbd>d</Kbd> to toggle dark mode</p>
                         <ThemeToggle />
                     </nav>
                 </header>
