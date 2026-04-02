@@ -3,6 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { type Listing } from "@/components/data/listings"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
@@ -96,6 +97,10 @@ export function ListingPopup({ listing }: ListingPopupProps) {
             <p className="truncate text-xs text-muted-foreground">
                 {listing.district}
             </p>
+
+            <Button variant="outline" size="sm" className="w-full">
+                View Detail
+            </Button>
         </div>
     )
 }
