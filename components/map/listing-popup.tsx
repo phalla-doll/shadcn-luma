@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { type Listing } from "@/components/data/listings"
 import { HugeiconsIcon } from "@hugeicons/react"
@@ -25,7 +26,14 @@ export function ListingPopup({ listing }: ListingPopupProps) {
 
     return (
         <div className="w-full space-y-3">
-            <div className="aspect-video w-full rounded-md bg-gradient-to-br from-primary/20 to-primary/5" />
+            <div className="relative aspect-video w-full overflow-hidden rounded-md">
+                <Image
+                    src={listing.image}
+                    alt={listing.type}
+                    fill
+                    className="object-cover"
+                />
+            </div>
 
             <div className="flex items-center justify-between">
                 <span className="text-lg font-semibold">

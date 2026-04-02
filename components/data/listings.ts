@@ -8,6 +8,7 @@ export type Listing = {
     district: string
     address: string
     description: string
+    image: string
     coordinates: [number, number] // [lng, lat]
     agent: {
         name: string
@@ -28,6 +29,7 @@ export const listings: Listing[] = [
         address: "Street 278, BKK1",
         description:
             "Modern 1-bedroom condo near Aeon Mall 1. Features open plan living, modern kitchen, and building amenities including pool and gym.",
+        image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
         coordinates: [104.92, 11.553],
         agent: { name: "Sophea Chan", phone: "+855 12 345 678" },
     },
@@ -42,6 +44,7 @@ export const listings: Listing[] = [
         address: "Street 63, BKK1",
         description:
             "Stunning penthouse with panoramic river views. Private rooftop pool, floor-to-ceiling windows, and premium finishes throughout.",
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
         coordinates: [104.918, 11.551],
         agent: { name: "Dara Kim", phone: "+855 17 234 567" },
     },
@@ -56,6 +59,7 @@ export const listings: Listing[] = [
         address: "Sisowath Quay",
         description:
             "Beautifully restored colonial villa on the Riverside. Original architectural details, modern amenities, large garden, and Mekong views.",
+        image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
         coordinates: [104.9225, 11.56],
         agent: { name: "Vannak Oum", phone: "+855 92 456 789" },
     },
@@ -70,6 +74,7 @@ export const listings: Listing[] = [
         address: "Monivong Boulevard",
         description:
             "Prime commercial shophouse on main road. Ideal for retail or restaurant. High foot traffic area with excellent visibility.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
         coordinates: [104.915, 11.565],
         agent: { name: "Chantrea Sok", phone: "+855 70 567 890" },
     },
@@ -84,6 +89,7 @@ export const listings: Listing[] = [
         address: "Olympia City, Street 271",
         description:
             "Furnished serviced apartment in Olympia City complex. Includes housekeeping, utilities, building amenities, and 24-hour security.",
+        image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
         coordinates: [104.925, 11.548],
         agent: { name: "Piseth Mean", phone: "+855 88 678 901" },
     },
@@ -98,6 +104,7 @@ export const listings: Listing[] = [
         address: "Street 380",
         description:
             "Brand new studio condo in upcoming development. Compact design with smart storage, modern finishes, and shared rooftop amenities.",
+        image: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=800&h=600&fit=crop",
         coordinates: [104.91, 11.572],
         agent: { name: "Bopha Ly", phone: "+855 99 789 012" },
     },
@@ -112,6 +119,7 @@ export const listings: Listing[] = [
         address: "Street 315",
         description:
             "Spacious villa in gated community with private pool. Modern design, landscaped garden, and close to international schools.",
+        image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
         coordinates: [104.905, 11.575],
         agent: { name: "Sokha Keo", phone: "+855 12 890 123" },
     },
@@ -126,6 +134,7 @@ export const listings: Listing[] = [
         address: "Borey Peng Huoth",
         description:
             "Modern borey villa with 4 bedrooms. Open plan living, covered parking, and access to borey amenities including park and convenience store.",
+        image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop",
         coordinates: [104.88, 11.58],
         agent: { name: "Nary Ung", phone: "+855 17 901 234" },
     },
@@ -140,6 +149,7 @@ export const listings: Listing[] = [
         address: "Street 371",
         description:
             "8-unit apartment building with strong rental income. Each unit is 1-bedroom with separate utilities and parking.",
+        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
         coordinates: [104.93, 11.545],
         agent: { name: "Veasna Chea", phone: "+855 86 012 345" },
     },
@@ -154,6 +164,7 @@ export const listings: Listing[] = [
         address: "Near AEON Mall 3",
         description:
             "400sqm land plot on main road. Suitable for residential or commercial development. All utilities available at boundary.",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop",
         coordinates: [104.875, 11.585],
         agent: { name: "Kimsan Heng", phone: "+855 95 123 456" },
     },
@@ -168,6 +179,7 @@ export const listings: Listing[] = [
         address: "Koh Pich, Tower B",
         description:
             "Modern 2-bedroom condo on Diamond Island. Floor-to-ceiling windows, premium finishes, gym, pool, and river views.",
+        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
         coordinates: [104.9355, 11.55],
         agent: { name: "Sreypov Chhorn", phone: "+855 88 234 567" },
     },
@@ -182,6 +194,7 @@ export const listings: Listing[] = [
         address: "Street 450",
         description:
             "Corner shophouse near Russian Market. Excellent location for café or boutique. Popular tourist and expat area.",
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
         coordinates: [104.917, 11.5475],
         agent: { name: "Virak Boun", phone: "+855 17 345 678" },
     },
@@ -196,6 +209,7 @@ export const listings: Listing[] = [
         address: "River Road",
         description:
             "Architect-designed modern villa with Mekong river views. 5 bedrooms, home office, wine cellar, and infinity pool.",
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop&q=80",
         coordinates: [104.935, 11.575],
         agent: { name: "Linda Yin", phone: "+855 92 456 789" },
     },
@@ -210,6 +224,7 @@ export const listings: Listing[] = [
         address: "AEON Mall 2 area",
         description:
             "Affordable 1-bedroom condo walking distance to AEON Mall 2. Modern kitchen, building pool, and 24-hour security.",
+        image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=600&fit=crop",
         coordinates: [104.885, 11.578],
         agent: { name: "Phalla Tep", phone: "+855 70 567 890" },
     },
@@ -224,6 +239,7 @@ export const listings: Listing[] = [
         address: "Street 306",
         description:
             "Fully renovated apartment in prime BKK1. High ceilings, original wooden floors, modern bathrooms, and shared garden.",
+        image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&h=600&fit=crop",
         coordinates: [104.921, 11.552],
         agent: { name: "Rotha Nget", phone: "+855 99 678 901" },
     },
@@ -238,6 +254,7 @@ export const listings: Listing[] = [
         address: "National Road 4",
         description:
             "600sqm land plot in developing area. Road frontage, near new borey developments, suitable for residential construction.",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=600&fit=crop",
         coordinates: [104.86, 11.565],
         agent: { name: "Chanthou Roeun", phone: "+855 86 789 012" },
     },
@@ -252,6 +269,7 @@ export const listings: Listing[] = [
         address: "Street 360",
         description:
             "3-bedroom townhouse near VIP area. Modern renovation, small garden, covered parking, and quiet neighborhood.",
+        image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&h=600&fit=crop",
         coordinates: [104.928, 11.549],
         agent: { name: "Kannika Prum", phone: "+855 95 890 123" },
     },
@@ -266,6 +284,7 @@ export const listings: Listing[] = [
         address: "Koh Pich, Tower A",
         description:
             "High floor luxury condo with panoramic city and river views. Premium finishes, concierge service, and rooftop infinity pool.",
+        image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&h=600&fit=crop",
         coordinates: [104.936, 11.551],
         agent: { name: "Sothyra Om", phone: "+855 12 901 234" },
     },
@@ -280,6 +299,7 @@ export const listings: Listing[] = [
         address: "Monivong Boulevard",
         description:
             "Ground floor commercial space on major boulevard. High ceiling, street frontage, ideal for bank, restaurant, or retail flagship.",
+        image: "https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=800&h=600&fit=crop",
         coordinates: [104.916, 11.556],
         agent: { name: "Borin Tim", phone: "+855 17 012 345" },
     },
@@ -294,7 +314,158 @@ export const listings: Listing[] = [
         address: "Borey Piphop Thmey",
         description:
             "Affordable 3-bedroom townhome in new borey development. Modern design, small courtyard, and community facilities.",
+        image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop",
         coordinates: [104.87, 11.555],
         agent: { name: "Vichea Kao", phone: "+855 88 123 456" },
+    },
+    {
+        id: "21",
+        type: "Rooftop Studio",
+        price: 62000,
+        beds: 0,
+        baths: 1,
+        sqft: 320,
+        district: "Boeung Keng Kang 1",
+        address: "Street 294, BKK1",
+        description:
+            "Charming rooftop studio in the heart of BKK1. Private terrace with city views, modern kitchenette, and walkable to restaurants and cafes.",
+        image: "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop",
+        coordinates: [104.919, 11.554],
+        agent: { name: "Mony Phan", phone: "+855 10 234 567" },
+    },
+    {
+        id: "22",
+        type: "Family Villa",
+        price: 520000,
+        beds: 6,
+        baths: 5,
+        sqft: 5000,
+        district: "Tuol Kork",
+        address: "Street 352",
+        description:
+            "Grand family villa with 6 bedrooms, maid's quarters, and triple car garage. Large backyard, storage room, and peaceful residential street.",
+        image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800&h=600&fit=crop",
+        coordinates: [104.908, 11.57],
+        agent: { name: "Thyda Ros", phone: "+855 12 345 678" },
+    },
+    {
+        id: "23",
+        type: "Office Space",
+        price: 175000,
+        beds: null,
+        baths: 2,
+        sqft: 1600,
+        district: "Daun Penh",
+        address: "Norodom Boulevard",
+        description:
+            "Grade B office space in CBD. Open floor plan, server room, reception area, and 4 parking spots. Near government ministries.",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
+        coordinates: [104.919, 11.558],
+        agent: { name: "Sokheng Phat", phone: "+855 17 456 789" },
+    },
+    {
+        id: "24",
+        type: "Warehouse",
+        price: 230000,
+        beds: null,
+        baths: 1,
+        sqft: 8000,
+        district: "Meanchey",
+        address: "Street 217",
+        description:
+            "Large warehouse with loading dock and office. High clearance ceiling, 3-phase power, container access, and 24-hour security.",
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop",
+        coordinates: [104.925, 11.54],
+        agent: { name: "Phearom Yim", phone: "+855 92 567 890" },
+    },
+    {
+        id: "25",
+        type: "Boutique Hotel",
+        price: 680000,
+        beds: 12,
+        baths: 12,
+        sqft: 6000,
+        district: "Riverside",
+        address: "Street 148",
+        description:
+            "Operating 12-room boutique hotel on Riverside. Fully furnished, rooftop bar, restaurant, and steady tourist bookings. Turnkey investment.",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
+        coordinates: [104.921, 11.557],
+        agent: { name: "Rathana Seang", phone: "+855 70 678 901" },
+    },
+    {
+        id: "26",
+        type: "Penthouse Suite",
+        price: 550000,
+        beds: 4,
+        baths: 3,
+        sqft: 2200,
+        district: "Diamond Island",
+        address: "Koh Pich, The Peak",
+        description:
+            "Ultra-luxury penthouse in The Peak tower. Double-height living room, private elevator, designer interiors, and 270-degree river views.",
+        image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop",
+        coordinates: [104.934, 11.549],
+        agent: { name: "Chamroeun Lim", phone: "+855 88 789 012" },
+    },
+    {
+        id: "27",
+        type: "Borey Link Home",
+        price: 58000,
+        beds: 3,
+        baths: 2,
+        sqft: 1000,
+        district: "Kambol",
+        address: "Borey Advanced",
+        description:
+            "Affordable linked home in Kambol borey. 3 bedrooms, small front garden, gated community with 24h security and playground.",
+        image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+        coordinates: [104.85, 11.54],
+        agent: { name: "Savuth Chey", phone: "+855 95 890 123" },
+    },
+    {
+        id: "28",
+        type: "Co-working Space",
+        price: 145000,
+        beds: null,
+        baths: 2,
+        sqft: 1800,
+        district: "Tonle Bassac",
+        address: "Street 240",
+        description:
+            "Fitted co-working space with hot desks, private offices, meeting rooms, and event area. Fully equipped kitchen and break room.",
+        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop",
+        coordinates: [104.923, 11.546],
+        agent: { name: "Sreymom Chan", phone: "+855 10 901 234" },
+    },
+    {
+        id: "29",
+        type: "Heritage Apartment",
+        price: 180000,
+        beds: 3,
+        baths: 2,
+        sqft: 1100,
+        district: "Daun Penh",
+        address: "Street 178",
+        description:
+            "Restored heritage apartment in French Quarter. Original tile floors, wrought-iron balconies, high ceilings, and charming courtyard entry.",
+        image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&h=600&fit=crop",
+        coordinates: [104.92, 11.562],
+        agent: { name: "Sovannary Thach", phone: "+855 86 012 345" },
+    },
+    {
+        id: "30",
+        type: "Mixed-Use Building",
+        price: 385000,
+        beds: 4,
+        baths: 3,
+        sqft: 3500,
+        district: "Russey Keo",
+        address: "National Road 5",
+        description:
+            "Mixed-use building with ground floor retail and 4 residential units above. Strong rental yield, main road frontage, and growing area.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+        coordinates: [104.895, 11.59],
+        agent: { name: "Virakpheap Nguon", phone: "+855 17 123 456" },
     },
 ]

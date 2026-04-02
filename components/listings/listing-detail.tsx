@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -51,8 +52,14 @@ export function ListingDetail({
                 </SheetHeader>
 
                 <div className="mt-6 flex flex-col gap-6 overflow-y-auto px-6 pb-6">
-                    {/* Image carousel placeholder */}
-                    <div className="aspect-video w-full rounded-lg bg-gradient-to-br from-primary/20 to-primary/5" />
+                    <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+                        <Image
+                            src={listing.image}
+                            alt={listing.type}
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
 
                     {/* Price and type */}
                     <div className="flex items-start justify-between">

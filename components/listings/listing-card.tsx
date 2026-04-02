@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { type Listing } from "@/components/data/listings"
@@ -42,8 +43,14 @@ export function ListingCard({
             onClick={onClick}
             {...props}
         >
-            {/* Image placeholder */}
-            <div className="aspect-video w-full rounded-md bg-gradient-to-br from-primary/20 to-primary/5" />
+            <div className="relative aspect-video w-full overflow-hidden rounded-md">
+                <Image
+                    src={listing.image}
+                    alt={listing.type}
+                    fill
+                    className="object-cover"
+                />
+            </div>
 
             <div className="flex flex-col gap-1">
                 {/* Price and type */}
