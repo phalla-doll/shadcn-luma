@@ -8,6 +8,7 @@ import {
     Moon01Icon,
     GithubIcon,
     ArrowRight01Icon,
+    ArrowRight02Icon,
 } from "@hugeicons/core-free-icons"
 
 import { Badge } from "@/components/ui/badge"
@@ -68,9 +69,18 @@ export default function Page() {
                 <section className="flex flex-col items-center gap-8 text-center">
                     <Badge
                         variant="secondary"
-                        className="animate-in duration-500 fade-in"
+                        className="animate-in cursor-pointer duration-500 fade-in"
+                        asChild
                     >
-                        55+ Production-Grade Components
+                        <span>
+                            <a href="#map">
+                                New Interactive Map
+                            </a>
+                            <HugeiconsIcon
+                                icon={ArrowRight02Icon}
+                                strokeWidth={2}
+                                data-icon="inline-end"/>
+                        </span>
                     </Badge>
                     <h1 className="max-w-3xl animate-in text-3xl leading-[1.1] font-medium tracking-tight duration-700 fade-in slide-in-from-bottom-4 md:text-5xl">
                         Discover curated UI components that{" "}
@@ -117,7 +127,7 @@ export default function Page() {
                 <ComponentShowcase />
             </div>
 
-            <div className="bg-muted/50 p-6 md:p-10">
+            <div id="map" className="scroll-mt-16 bg-muted/50 p-6 md:p-10">
                 <MapSection className="relative h-[65vh] overflow-hidden rounded-2xl" />
             </div>
 
