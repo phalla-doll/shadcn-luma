@@ -57,7 +57,9 @@ export default function Page() {
                 <header className="flex items-center justify-between">
                     <Logo />
                     <nav className="flex items-center gap-1">
-                        <p className="font-mono text-sm tracking-tight">Press <Kbd>d</Kbd> to toggle dark mode</p>
+                        <p className="font-mono text-sm tracking-tight">
+                            Press <Kbd>d</Kbd> to toggle dark mode
+                        </p>
                         <ThemeToggle />
                     </nav>
                 </header>
