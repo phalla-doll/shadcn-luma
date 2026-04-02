@@ -138,6 +138,16 @@ export default function Page() {
                     <Badge variant="secondary" className="font-mono text-xs">
                         Tailwind v4
                     </Badge>
+                    <span>·</span>
+                    <span>by</span>
+                    <a
+                        href="https://manthaa.dev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                    >
+                        Mantha
+                    </a>
                 </footer>
             </div>
         </div>
