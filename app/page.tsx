@@ -124,7 +124,7 @@ export default function Page() {
                 <MapSection className="relative h-[65vh] overflow-hidden rounded-2xl" />
             </div>
 
-            <div className="relative mx-auto flex max-w-7xl justify-center px-6 pb-12">
+            <div className="relative mx-auto flex max-w-7xl justify-center px-6 pb-12 mt-10">
                 <footer className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                     <span>Built with</span>
                     <Badge variant="secondary" className="font-mono text-xs">
