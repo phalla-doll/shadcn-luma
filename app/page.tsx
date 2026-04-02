@@ -92,13 +92,19 @@ export default function Page() {
                                 data-icon="inline-end"
                             />
                         </Button>
-                        <Button variant="outline" size="lg">
-                            <HugeiconsIcon
-                                icon={GithubIcon}
-                                strokeWidth={2}
-                                data-icon="inline-start"
-                            />
-                            View Source
+                        <Button variant="outline" size="lg" asChild>
+                            <a
+                                href="https://github.com/phalla-doll/shadcn-luma"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <HugeiconsIcon
+                                    icon={GithubIcon}
+                                    strokeWidth={2}
+                                    data-icon="inline-start"
+                                />
+                                View Source
+                            </a>
                         </Button>
                     </div>
                 </section>
