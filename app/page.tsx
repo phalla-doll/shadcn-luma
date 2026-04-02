@@ -117,7 +117,7 @@ export default function Page() {
                 <Preview02Example />
             </div>
 
-            <div className="my-5 rounded-3xl bg-muted p-6 md:p-10">
+            <div className="bg-muted/50 p-6 md:p-10">
                 <MapSection className="relative h-[65vh] overflow-hidden rounded-2xl" />
             </div>
 
