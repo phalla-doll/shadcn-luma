@@ -5,8 +5,6 @@ import dynamic from "next/dynamic"
 import { type Listing } from "@/components/data/listings"
 import { type Location } from "@/components/data/locations"
 import { SearchBar } from "@/components/search/search-bar"
-import { ListingsSheet } from "@/components/listings/listings-sheet"
-import { ListingDetail } from "@/components/listings/listing-detail"
 
 const MapContainer = dynamic(
     () =>
@@ -19,7 +17,6 @@ const MapContainer = dynamic(
 function MapSection({ className }: { className?: string }) {
     const [selectedListing, setSelectedListing] =
         React.useState<Listing | null>(null)
-    const [detailOpen, setDetailOpen] = React.useState(false)
     const [flyToCoordinates, setFlyToCoordinates] = React.useState<
         [number, number] | null
     >(null)
@@ -35,36 +32,16 @@ function MapSection({ className }: { className?: string }) {
         setSelectedListing(null)
     }, [])
 
-    const handleViewDetails = React.useCallback(() => {
-        setDetailOpen(true)
-    }, [])
-
-    const handleDetailOpenChange = React.useCallback((open: boolean) => {
-        setDetailOpen(open)
-    }, [])
-
     return (
         <div className={className}>
             <MapContainer
                 selectedListing={selectedListing}
                 onListingSelect={handleListingSelect}
-                onViewDetails={handleViewDetails}
                 flyToCoordinates={flyToCoordinates}
                 flyToZoom={flyToZoom}
             />
 
             <SearchBar onLocationSelectAction={handleLocationSelect} />
-
-            <ListingsSheet
-                selectedListing={selectedListing}
-                onListingSelectAction={handleListingSelect}
-            />
-
-            <ListingDetail
-                listing={selectedListing}
-                open={detailOpen}
-                onOpenChange={handleDetailOpenChange}
-            />
         </div>
     )
 }

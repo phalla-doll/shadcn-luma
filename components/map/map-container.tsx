@@ -47,7 +47,6 @@ const createMarkerElement = (listing: Listing, isSelected: boolean) => {
 type MapContainerProps = {
     selectedListing: Listing | null
     onListingSelect: (listing: Listing | null) => void
-    onViewDetails: () => void
     flyToCoordinates?: [number, number] | null
     flyToZoom?: number
 } & React.ComponentProps<"div">
@@ -55,7 +54,6 @@ type MapContainerProps = {
 export function MapContainer({
     selectedListing,
     onListingSelect,
-    onViewDetails,
     flyToCoordinates,
     flyToZoom = 13,
     className,
@@ -293,10 +291,7 @@ export function MapContainer({
                                 key={displayListing.id}
                                 className="animate-in duration-200 fade-in-0"
                             >
-                                <ListingPopup
-                                    listing={displayListing}
-                                    onViewDetails={onViewDetails}
-                                />
+                                <ListingPopup listing={displayListing} />
                             </div>
                         </div>
                     )
