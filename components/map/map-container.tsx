@@ -37,7 +37,7 @@ const formatPrice = (price: number) => {
 const createMarkerElement = (listing: Listing, isSelected: boolean) => {
     const el = document.createElement("div")
     el.className = cn(
-        "pointer-events-auto cursor-pointer rounded-full bg-popover px-3 py-1.5 text-sm font-semibold text-popover-foreground shadow-md transition-shadow hover:z-50 hover:shadow-lg",
+        "pointer-events-auto cursor-pointer rounded-full bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground shadow-md transition-shadow hover:z-50 hover:shadow-lg",
         isSelected && "ring-2 ring-primary"
     )
     el.textContent = formatPrice(listing.price)

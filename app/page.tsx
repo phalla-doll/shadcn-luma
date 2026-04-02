@@ -120,11 +120,11 @@ export default function Page() {
 
             <Preview02Example />
 
-            <div className="rounded-3xl bg-muted p-6 md:p-10 my-5">
+            <div className="my-5 rounded-3xl bg-muted p-6 md:p-10">
                 <MapSection className="relative h-[65vh] overflow-hidden rounded-2xl" />
             </div>
 
-            <div className="relative mx-auto flex max-w-7xl justify-center px-6 pb-12 mt-10">
+            <div className="relative mx-auto mt-10 flex max-w-7xl justify-center px-6 pb-12">
                 <footer className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                     <span>Built with</span>
                     <Badge variant="secondary" className="font-mono text-xs">

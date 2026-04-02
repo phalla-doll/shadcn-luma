@@ -35,7 +35,7 @@ export function MapMarker({ listing, isSelected, onClick }: MapMarkerProps) {
         <div
             ref={el}
             className={cn(
-                "cursor-pointer rounded-full bg-popover px-3 py-1.5 text-sm font-semibold text-popover-foreground shadow-md transition-transform hover:scale-110",
+                "cursor-pointer rounded-full bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground shadow-md transition-transform hover:scale-110",
                 isSelected && "ring-2 ring-primary"
             )}
         >
