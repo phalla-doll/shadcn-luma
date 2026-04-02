@@ -14,7 +14,7 @@ const fontMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: {
-        default: "UI",
+        default: "UI — Curated UI components",
         template: "UI — %s",
     },
     description:
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         apple: "/logo-512.svg",
     },
     openGraph: {
-        title: "UI",
+        title: "UI — Curated UI components",
         description:
             "Curated UI components built with shadcn/ui, Radix, and Tailwind CSS v4.",
         url: "https://ui.manthaa.dev/",
