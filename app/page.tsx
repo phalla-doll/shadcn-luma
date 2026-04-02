@@ -84,13 +84,15 @@ export default function Page() {
                         explore the building blocks.
                     </p>
                     <div className="flex animate-in items-center gap-3 duration-700 [animation-delay:200ms] fade-in slide-in-from-bottom-4">
-                        <Button size="lg">
-                            Browse Components
-                            <HugeiconsIcon
-                                icon={ArrowRight01Icon}
-                                strokeWidth={2}
-                                data-icon="inline-end"
-                            />
+                        <Button size="lg" asChild>
+                            <a href="#components">
+                                Browse Components
+                                <HugeiconsIcon
+                                    icon={ArrowRight01Icon}
+                                    strokeWidth={2}
+                                    data-icon="inline-end"
+                                />
+                            </a>
                         </Button>
                         <Button variant="outline" size="lg" asChild>
                             <a
@@ -110,7 +112,9 @@ export default function Page() {
                 </section>
             </div>
 
-            <Preview02Example />
+            <div id="components">
+                <Preview02Example />
+            </div>
 
             <div className="my-5 rounded-3xl bg-muted p-6 md:p-10">
                 <MapSection className="relative h-[65vh] overflow-hidden rounded-2xl" />
