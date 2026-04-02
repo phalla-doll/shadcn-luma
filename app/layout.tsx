@@ -31,6 +31,12 @@ export const metadata: Metadata = {
         siteName: "UI",
         images: [
             {
+                url: "/ui-mantha-og-main.png",
+                width: 1200,
+                height: 630,
+                alt: "UI — Build interfaces people actually want to use",
+            },
+            {
                 url: "/logo-512.svg",
                 width: 512,
                 height: 512,
