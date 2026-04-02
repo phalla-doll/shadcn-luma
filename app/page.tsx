@@ -73,13 +73,12 @@ export default function Page() {
                         asChild
                     >
                         <span>
-                            <a href="#map">
-                                New Interactive Map
-                            </a>
+                            <a href="#map">New Interactive Map</a>
                             <HugeiconsIcon
                                 icon={ArrowRight02Icon}
                                 strokeWidth={2}
-                                data-icon="inline-end"/>
+                                data-icon="inline-end"
+                            />
                         </span>
                     </Badge>
                     <h1 className="max-w-3xl animate-in text-3xl leading-[1.1] font-medium tracking-tight duration-700 fade-in slide-in-from-bottom-4 md:text-5xl">
