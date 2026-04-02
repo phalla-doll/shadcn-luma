@@ -98,7 +98,7 @@ export function ListingPopup({ listing }: ListingPopupProps) {
                 {listing.district}
             </p>
 
-            <Button variant="outline" size="sm" className="w-full">
+            <Button size="sm" className="w-full">
                 View Detail
             </Button>
         </div>
