@@ -47,33 +47,48 @@ export function ListingPopup({ listing }: ListingPopupProps) {
             {(listing.beds !== null ||
                 listing.baths !== null ||
                 listing.sqft !== null) && (
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <div className="grid grid-cols-3 gap-2">
                     {listing.beds !== null && (
-                        <span className="flex items-center gap-1">
+                        <div className="flex flex-col items-center gap-1 rounded-md bg-muted p-2">
                             <HugeiconsIcon
                                 icon={BedSingle01Icon}
-                                className="size-3.5"
+                                className="size-4 text-muted-foreground"
                             />
-                            {listing.beds === 0 ? "Studio" : listing.beds}
-                        </span>
+                            <span className="text-sm font-semibold">
+                                {listing.beds === 0 ? "Studio" : listing.beds}
+                            </span>
+                            <span className="text-[10px] text-muted-foreground">
+                                Beds
+                            </span>
+                        </div>
                     )}
                     {listing.baths !== null && (
-                        <span className="flex items-center gap-1">
+                        <div className="flex flex-col items-center gap-1 rounded-md bg-muted p-2">
                             <HugeiconsIcon
                                 icon={Bathtub01Icon}
-                                className="size-3.5"
+                                className="size-4 text-muted-foreground"
                             />
-                            {listing.baths}
-                        </span>
+                            <span className="text-sm font-semibold">
+                                {listing.baths}
+                            </span>
+                            <span className="text-[10px] text-muted-foreground">
+                                Baths
+                            </span>
+                        </div>
                     )}
                     {listing.sqft !== null && (
-                        <span className="flex items-center gap-1">
+                        <div className="flex flex-col items-center gap-1 rounded-md bg-muted p-2">
                             <HugeiconsIcon
                                 icon={RulerIcon}
-                                className="size-3.5"
+                                className="size-4 text-muted-foreground"
                             />
-                            {listing.sqft.toLocaleString()} ft²
-                        </span>
+                            <span className="text-sm font-semibold">
+                                {listing.sqft.toLocaleString()}
+                            </span>
+                            <span className="text-[10px] text-muted-foreground">
+                                Sq Ft
+                            </span>
+                        </div>
                     )}
                 </div>
             )}
