@@ -1,16 +1,13 @@
 "use client"
 
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     InputGroup,
     InputGroupAddon,
     InputGroupInput,
-} from "@/registry/bases/radix/ui/input-group"
-import {
-    ToggleGroup,
-    ToggleGroupItem,
-} from "@/registry/bases/radix/ui/toggle-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/input-group"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function CatalogToolbar() {
     return (

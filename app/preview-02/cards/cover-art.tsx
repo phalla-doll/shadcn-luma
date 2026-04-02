@@ -1,13 +1,13 @@
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
     CardDescription,
     CardFooter,
-} from "@/registry/bases/radix/ui/card"
-import { Item } from "@/registry/bases/radix/ui/item"
-import { Label } from "@/registry/bases/radix/ui/label"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/card"
+import { Item } from "@/components/ui/item"
+import { Label } from "@/components/ui/label"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function CoverArt() {
     return (

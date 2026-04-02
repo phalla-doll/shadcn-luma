@@ -1,12 +1,12 @@
-import { Badge } from "@/registry/bases/radix/ui/badge"
+import { Badge } from "@/components/ui/badge"
 import {
     Card,
     CardContent,
     CardDescription,
     CardFooter,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
-import { Separator } from "@/registry/bases/radix/ui/separator"
+} from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
 
 export function AlbumCard() {
     return (

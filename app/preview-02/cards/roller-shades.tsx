@@ -9,12 +9,9 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
-import { Slider } from "@/registry/bases/radix/ui/slider"
-import {
-    ToggleGroup,
-    ToggleGroupItem,
-} from "@/registry/bases/radix/ui/toggle-group"
+} from "@/components/ui/card"
+import { Slider } from "@/components/ui/slider"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 export function RollerShades() {
     const [position, setPosition] = React.useState([50])

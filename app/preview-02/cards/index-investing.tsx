@@ -1,4 +1,4 @@
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardAction,
@@ -6,8 +6,8 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/card"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function IndexInvesting() {
     return (

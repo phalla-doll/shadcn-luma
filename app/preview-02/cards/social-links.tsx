@@ -1,18 +1,18 @@
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
-import { Field, FieldGroup, FieldLabel } from "@/registry/bases/radix/ui/field"
+} from "@/components/ui/card"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import {
     InputGroup,
     InputGroupAddon,
     InputGroupInput,
-} from "@/registry/bases/radix/ui/input-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/input-group"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function SocialLinks() {
     return (

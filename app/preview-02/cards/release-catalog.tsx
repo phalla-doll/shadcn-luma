@@ -1,12 +1,12 @@
 "use client"
 
-import { Badge } from "@/registry/bases/radix/ui/badge"
-import { Card, CardContent, CardHeader } from "@/registry/bases/radix/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import {
     InputGroup,
     InputGroupAddon,
     InputGroupInput,
-} from "@/registry/bases/radix/ui/input-group"
+} from "@/components/ui/input-group"
 import {
     Item,
     ItemContent,
@@ -14,12 +14,9 @@ import {
     ItemGroup,
     ItemMedia,
     ItemTitle,
-} from "@/registry/bases/radix/ui/item"
-import {
-    ToggleGroup,
-    ToggleGroupItem,
-} from "@/registry/bases/radix/ui/toggle-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/item"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const HOLDINGS = [
     {

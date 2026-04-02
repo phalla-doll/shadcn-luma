@@ -1,4 +1,4 @@
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardAction,
@@ -7,31 +7,28 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     Field,
     FieldDescription,
     FieldGroup,
     FieldLabel,
-} from "@/registry/bases/radix/ui/field"
+} from "@/components/ui/field"
 import {
     InputGroup,
     InputGroupAddon,
     InputGroupInput,
     InputGroupText,
-} from "@/registry/bases/radix/ui/input-group"
+} from "@/components/ui/input-group"
 import {
     Item,
     ItemContent,
     ItemDescription,
     ItemFooter,
     ItemGroup,
-} from "@/registry/bases/radix/ui/item"
-import {
-    NativeSelect,
-    NativeSelectOption,
-} from "@/registry/bases/radix/ui/native-select"
-import { Progress } from "@/registry/bases/radix/ui/progress"
+} from "@/components/ui/item"
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
+import { Progress } from "@/components/ui/progress"
 
 export function SavingsTargets() {
     return (

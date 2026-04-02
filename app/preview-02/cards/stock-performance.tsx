@@ -9,13 +9,13 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
     type ChartConfig,
-} from "@/registry/bases/radix/ui/chart"
+} from "@/components/ui/chart"
 import {
     Combobox,
     ComboboxContent,
@@ -23,9 +23,9 @@ import {
     ComboboxInput,
     ComboboxItem,
     ComboboxList,
-} from "@/registry/bases/radix/ui/combobox"
-import { Field, FieldGroup, FieldLabel } from "@/registry/bases/radix/ui/field"
-import { Separator } from "@/registry/bases/radix/ui/separator"
+} from "@/components/ui/combobox"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
+import { Separator } from "@/components/ui/separator"
 
 const TICKERS = ["VOO", "VIG", "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"]
 

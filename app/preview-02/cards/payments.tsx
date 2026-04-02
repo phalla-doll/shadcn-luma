@@ -7,16 +7,16 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
-} from "@/registry/bases/radix/ui/breadcrumb"
-import { Button } from "@/registry/bases/radix/ui/button"
-import { Card, CardContent, CardHeader } from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/breadcrumb"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from "@/registry/bases/radix/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 import {
     Item,
     ItemContent,
@@ -24,8 +24,8 @@ import {
     ItemGroup,
     ItemMedia,
     ItemTitle,
-} from "@/registry/bases/radix/ui/item"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/item"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function Payments() {
     return (

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardAction,
@@ -10,21 +10,16 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/registry/bases/radix/ui/dropdown-menu"
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableRow,
-} from "@/registry/bases/radix/ui/table"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/dropdown-menu"
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function RecentTransactions() {
     return (

@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardAction,
@@ -9,7 +9,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     Field,
     FieldContent,
@@ -18,13 +18,10 @@ import {
     FieldLabel,
     FieldLegend,
     FieldSet,
-} from "@/registry/bases/radix/ui/field"
-import { Input } from "@/registry/bases/radix/ui/input"
-import {
-    RadioGroup,
-    RadioGroupItem,
-} from "@/registry/bases/radix/ui/radio-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/field"
+import { Input } from "@/components/ui/input"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function ReceivingMethod() {
     return (

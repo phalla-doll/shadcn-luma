@@ -1,5 +1,5 @@
-import { Button } from "@/registry/bases/radix/ui/button"
-import { Card, CardContent } from "@/registry/bases/radix/ui/card"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import {
     Empty,
     EmptyContent,
@@ -7,8 +7,8 @@ import {
     EmptyHeader,
     EmptyMedia,
     EmptyTitle,
-} from "@/registry/bases/radix/ui/empty"
-import { Spinner } from "@/registry/bases/radix/ui/spinner"
+} from "@/components/ui/empty"
+import { Spinner } from "@/components/ui/spinner"
 
 export function SyncingState() {
     return (

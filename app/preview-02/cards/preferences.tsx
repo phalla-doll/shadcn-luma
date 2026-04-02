@@ -1,4 +1,4 @@
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardAction,
@@ -7,7 +7,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     Field,
     FieldContent,
@@ -15,7 +15,7 @@ import {
     FieldGroup,
     FieldLabel,
     FieldSeparator,
-} from "@/registry/bases/radix/ui/field"
+} from "@/components/ui/field"
 import {
     Select,
     SelectContent,
@@ -23,9 +23,9 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/registry/bases/radix/ui/select"
-import { Switch } from "@/registry/bases/radix/ui/switch"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/select"
+import { Switch } from "@/components/ui/switch"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function Preferences() {
     return (

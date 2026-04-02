@@ -1,6 +1,6 @@
 "use client"
 
-import { Card } from "@/registry/bases/radix/ui/card"
+import { Card } from "@/components/ui/card"
 import {
     Sidebar,
     SidebarContent,
@@ -12,8 +12,8 @@ import {
     SidebarMenuItem,
     SidebarProvider,
     SidebarSeparator,
-} from "@/registry/bases/radix/ui/sidebar"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/sidebar"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 export function SidebarNav() {
     return (

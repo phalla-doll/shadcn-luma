@@ -2,8 +2,8 @@
 
 import { Bar, BarChart, XAxis } from "recharts"
 
-import { Badge } from "@/registry/bases/radix/ui/badge"
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardAction,
@@ -12,18 +12,14 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
     type ChartConfig,
-} from "@/registry/bases/radix/ui/chart"
-import {
-    Item,
-    ItemContent,
-    ItemDescription,
-} from "@/registry/bases/radix/ui/item"
+} from "@/components/ui/chart"
+import { Item, ItemContent, ItemDescription } from "@/components/ui/item"
 
 const chartData = [
     { month: "Dec", amount: 800 },

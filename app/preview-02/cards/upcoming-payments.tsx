@@ -2,15 +2,15 @@
 
 import * as React from "react"
 
-import { Badge } from "@/registry/bases/radix/ui/badge"
-import { Calendar } from "@/registry/bases/radix/ui/calendar"
+import { Badge } from "@/components/ui/badge"
+import { Calendar } from "@/components/ui/calendar"
 import {
     Card,
     CardContent,
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     Item,
     ItemContent,
@@ -18,7 +18,7 @@ import {
     ItemGroup,
     ItemMedia,
     ItemTitle,
-} from "@/registry/bases/radix/ui/item"
+} from "@/components/ui/item"
 
 export function UpcomingPayments() {
     const [date, setDate] = React.useState<Date | undefined>(new Date())

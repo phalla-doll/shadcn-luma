@@ -9,15 +9,15 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
     type ChartConfig,
-} from "@/registry/bases/radix/ui/chart"
-import { Progress } from "@/registry/bases/radix/ui/progress"
-import { Separator } from "@/registry/bases/radix/ui/separator"
+} from "@/components/ui/chart"
+import { Progress } from "@/components/ui/progress"
+import { Separator } from "@/components/ui/separator"
 
 const chartData = [
     { hour: "6a", usage: 1.2 },

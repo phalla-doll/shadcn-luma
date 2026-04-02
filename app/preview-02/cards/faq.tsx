@@ -5,8 +5,8 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/registry/bases/radix/ui/accordion"
-import { Button } from "@/registry/bases/radix/ui/button"
+} from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
@@ -14,13 +14,8 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
-import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-} from "@/registry/bases/radix/ui/tabs"
+} from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const GENERAL_QUESTIONS = [
     {

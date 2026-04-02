@@ -2,14 +2,14 @@
 
 import { Label, Pie, PieChart } from "recharts"
 
-import { Card, CardContent, CardFooter } from "@/registry/bases/radix/ui/card"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
     type ChartConfig,
-} from "@/registry/bases/radix/ui/chart"
-import { Separator } from "@/registry/bases/radix/ui/separator"
+} from "@/components/ui/chart"
+import { Separator } from "@/components/ui/separator"
 
 const chartData = [
     { name: "saved", value: 24000, fill: "var(--color-saved)" },

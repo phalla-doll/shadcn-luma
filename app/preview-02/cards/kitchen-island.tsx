@@ -9,7 +9,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     Item,
     ItemActions,
@@ -17,14 +17,11 @@ import {
     ItemGroup,
     ItemMedia,
     ItemTitle,
-} from "@/registry/bases/radix/ui/item"
-import { Slider } from "@/registry/bases/radix/ui/slider"
-import { Switch } from "@/registry/bases/radix/ui/switch"
-import {
-    ToggleGroup,
-    ToggleGroupItem,
-} from "@/registry/bases/radix/ui/toggle-group"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/item"
+import { Slider } from "@/components/ui/slider"
+import { Switch } from "@/components/ui/switch"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const SCENES = {
     cooking: { brightness: [90], colorTemp: [70], volume: [30], fade: [0] },

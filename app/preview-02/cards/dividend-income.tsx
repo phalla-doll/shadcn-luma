@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, XAxis } from "recharts"
 
-import { Button } from "@/registry/bases/radix/ui/button"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardAction,
@@ -10,21 +10,21 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/registry/bases/radix/ui/card"
+} from "@/components/ui/card"
 import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
     type ChartConfig,
-} from "@/registry/bases/radix/ui/chart"
+} from "@/components/ui/chart"
 import {
     Item,
     ItemContent,
     ItemDescription,
     ItemGroup,
     ItemTitle,
-} from "@/registry/bases/radix/ui/item"
-import { IconPlaceholder } from "@/app/(create)/components/icon-placeholder"
+} from "@/components/ui/item"
+import { IconPlaceholder } from "@/components/icon-placeholder"
 
 const HOLDINGS = [
     {
