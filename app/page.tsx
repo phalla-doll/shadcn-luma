@@ -73,11 +73,11 @@ export default function Page() {
                         55+ Production-Grade Components
                     </Badge>
                     <h1 className="max-w-3xl animate-in text-3xl leading-[1.1] font-medium tracking-tight duration-700 fade-in slide-in-from-bottom-4 md:text-5xl">
-                        Build interfaces{" "}
+                        Discover curated UI components that{" "}
                         <span className="bg-linear-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-                            people actually
+                            feel good
                         </span>{" "}
-                        want to use
+                        to use
                     </h1>
                     <p className="max-w-xl animate-in text-lg text-muted-foreground duration-700 [animation-delay:100ms] fade-in slide-in-from-bottom-4">
                         Learn proper composition patterns for shadcn/ui
