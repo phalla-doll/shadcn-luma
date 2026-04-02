@@ -113,7 +113,7 @@ export default function Page() {
                 </section>
             </div>
 
-            <div id="components">
+            <div id="components" className="mb-2">
                 <Preview02Example />
             </div>
 
