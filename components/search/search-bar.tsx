@@ -16,7 +16,7 @@ import {
     CommandList,
 } from "@/components/ui/command"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { MapPinIcon, SearchIcon } from "@hugeicons/core-free-icons"
+import { SearchIcon, Location06Icon } from "@hugeicons/core-free-icons"
 import { locations, type Location } from "@/components/data/locations"
 
 type SearchBarProps = {
@@ -40,7 +40,7 @@ export function SearchBar({ onLocationSelectAction }: SearchBarProps) {
                     >
                         <span className="flex items-center gap-2">
                             <HugeiconsIcon
-                                icon={MapPinIcon}
+                                icon={Location06Icon}
                                 className="size-4 text-muted-foreground"
                             />
                             {selected ? selected.name : "Search location..."}
@@ -76,7 +76,7 @@ export function SearchBar({ onLocationSelectAction }: SearchBarProps) {
                                     >
                                         <span className="flex items-center gap-2">
                                             <HugeiconsIcon
-                                                icon={MapPinIcon}
+                                                icon={Location06Icon}
                                                 className="size-4 text-muted-foreground"
                                             />
                                             {location.name}
