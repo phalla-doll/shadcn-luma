@@ -131,20 +131,11 @@ export default function Page() {
             </div>
 
             <div className="relative mx-auto mt-10 flex max-w-7xl justify-center px-6 pb-12">
-                <footer className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                <footer className="flex items-center justify-center gap-1 font-mono text-xs text-muted-foreground">
                     <span>Built with</span>
                     <Badge variant="secondary" className="font-mono text-xs">
                         shadcn/ui
                     </Badge>
-                    <span>+</span>
-                    <Badge variant="secondary" className="font-mono text-xs">
-                        Radix
-                    </Badge>
-                    <span>+</span>
-                    <Badge variant="secondary" className="font-mono text-xs">
-                        Tailwind v4
-                    </Badge>
-                    <span>·</span>
                     <span>by</span>
                     <a
                         href="https://manthaa.dev/"
