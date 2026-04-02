@@ -58,7 +58,8 @@ export default function Page() {
                     <Logo />
                     <nav className="flex items-center gap-1">
                         <p className="font-mono text-sm tracking-tight">
-                            Press <Kbd className="rounded-md">d</Kbd> to toggle dark mode
+                            Press <Kbd className="rounded-md">d</Kbd> to toggle
+                            dark mode
                         </p>
                         <ThemeToggle />
                     </nav>
