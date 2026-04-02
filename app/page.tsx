@@ -74,7 +74,7 @@ export default function Page() {
                     </Badge>
                     <h1 className="max-w-3xl animate-in text-3xl leading-[1.1] font-medium tracking-tight duration-700 fade-in slide-in-from-bottom-4 md:text-5xl">
                         Discover curated UI components that{" "}
-                        <span className="bg-linear-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-primary via-blue-600 to-blue-500 bg-clip-text text-transparent">
                             feel good
                         </span>{" "}
                         to use
