@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         template: "UI — %s",
     },
     description:
-        "Build interfaces people actually want to use. Production-grade components built with shadcn/ui, Radix, and Tailwind CSS v4.",
+        "Curated UI components built with shadcn/ui, Radix, and Tailwind CSS v4.",
     icons: {
         icon: "/logo.svg",
         apple: "/logo-512.svg",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "UI",
         description:
-            "Build interfaces people actually want to use. Production-grade components built with shadcn/ui, Radix, and Tailwind CSS v4.",
+            "Curated UI components built with shadcn/ui, Radix, and Tailwind CSS v4.",
         url: "https://ui.manthaa.dev/",
         siteName: "UI",
         images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
                 url: "/ui-mantha-og-main.png",
                 width: 1200,
                 height: 630,
-                alt: "UI — Build interfaces people actually want to use",
+                alt: "UI — Curated UI components",
             },
             {
                 url: "/logo-512.svg",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         card: "summary",
         title: "UI",
         description:
-            "Build interfaces people actually want to use. Production-grade components built with shadcn/ui, Radix, and Tailwind CSS v4.",
+            "Curated UI components built with shadcn/ui, Radix, and Tailwind CSS v4.",
         images: ["/logo-512.svg"],
     },
     metadataBase: new URL("https://ui.manthaa.dev/"),
