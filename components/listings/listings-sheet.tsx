@@ -13,6 +13,7 @@ import { listings, type Listing } from "@/components/data/listings"
 import { ListingCard } from "./listing-card"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { ListViewIcon } from "@hugeicons/core-free-icons"
+import { trackEvent } from "@/lib/analytics"
 
 type ListingsSheetProps = {
     selectedListing: Listing | null
@@ -31,7 +32,10 @@ export function ListingsSheet({
                 data-slot="listings-fab"
                 size="icon-lg"
                 className="fixed bottom-6 left-6 z-40 rounded-full shadow-lg"
-                onClick={() => setOpen(true)}
+                onClick={() => {
+                    setOpen(true)
+                    trackEvent("listings_open")
+                }}
             >
                 <HugeiconsIcon icon={ListViewIcon} />
                 <span className="sr-only">View listings</span>
@@ -57,6 +61,10 @@ export function ListingsSheet({
                                 isSelected={selectedListing?.id === listing.id}
                                 onClick={() => {
                                     onListingSelectAction(listing)
+                                    trackEvent("listing_select", {
+                                        id: listing.id,
+                                        label: listing.address,
+                                    })
                                     setOpen(false)
                                 }}
                             />

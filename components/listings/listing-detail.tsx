@@ -22,6 +22,7 @@ import {
     Calendar01Icon,
     MapPinIcon,
 } from "@hugeicons/core-free-icons"
+import { trackEvent } from "@/lib/analytics"
 
 type ListingDetailProps = {
     listing: Listing | null
@@ -169,14 +170,27 @@ export function ListingDetail({
 
                     {/* Action buttons */}
                     <div className="flex gap-2">
-                        <Button className="flex-1">
+                        <Button
+                            className="flex-1"
+                            onClick={() =>
+                                trackEvent("schedule_viewing", {
+                                    id: listing.id,
+                                })
+                            }
+                        >
                             <HugeiconsIcon
                                 icon={Calendar01Icon}
                                 className="mr-2 size-4"
                             />
                             Schedule Viewing
                         </Button>
-                        <Button variant="outline" size="icon">
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            onClick={() =>
+                                trackEvent("contact_call", { id: listing.id })
+                            }
+                        >
                             <HugeiconsIcon
                                 icon={SmartPhoneIcon}
                                 className="size-4"

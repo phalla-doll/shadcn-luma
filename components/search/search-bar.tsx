@@ -18,6 +18,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 import { SearchIcon, Location06Icon } from "@hugeicons/core-free-icons"
 import { locations, type Location } from "@/components/data/locations"
+import { trackEvent } from "@/lib/analytics"
 
 type SearchBarProps = {
     onLocationSelectAction: (location: Location) => void
@@ -30,7 +31,13 @@ export function SearchBar({ onLocationSelectAction }: SearchBarProps) {
 
     return (
         <div className="absolute top-4 left-1/2 z-10 w-full max-w-md -translate-x-1/2 px-4">
-            <Popover open={open} onOpenChange={setOpen}>
+            <Popover
+                open={open}
+                onOpenChange={(isOpen) => {
+                    setOpen(isOpen)
+                    if (isOpen) trackEvent("search_open")
+                }}
+            >
                 <PopoverTrigger asChild>
                     <Button
                         variant="outline"
@@ -72,6 +79,9 @@ export function SearchBar({ onLocationSelectAction }: SearchBarProps) {
                                         onSelect={() => {
                                             setSelected(location)
                                             onLocationSelectAction(location)
+                                            trackEvent("location_select", {
+                                                name: location.name,
+                                            })
                                             setOpen(false)
                                         }}
                                     >

@@ -6,6 +6,7 @@ import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 import { listings, type Listing } from "@/components/data/listings"
 import { ListingPopup } from "./listing-popup"
+import { trackEvent } from "@/lib/analytics"
 
 const CARTO_LIGHT_STYLE =
     "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
@@ -164,6 +165,10 @@ export function MapContainer({
                     el.addEventListener("click", (e) => {
                         e.stopPropagation()
                         onListingSelectRef.current(listing)
+                        trackEvent("map_marker_click", {
+                            id: listing.id,
+                            label: listing.address,
+                        })
                     })
 
                     markersRef.current.set(listing.id, marker)

@@ -11,6 +11,7 @@ import {
     Bathtub01Icon,
     RulerIcon,
 } from "@hugeicons/core-free-icons"
+import { trackEvent } from "@/lib/analytics"
 
 type ListingPopupProps = {
     listing: Listing
@@ -98,7 +99,11 @@ export function ListingPopup({ listing }: ListingPopupProps) {
                 {listing.district}
             </p>
 
-            <Button size="sm" className="w-full">
+            <Button
+                size="sm"
+                className="w-full"
+                onClick={() => trackEvent("view_detail", { id: listing.id })}
+            >
                 View Detail
             </Button>
         </div>

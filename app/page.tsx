@@ -14,6 +14,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
+import { trackEvent } from "@/lib/analytics"
 
 import ComponentShowcase from "@/app/component-showcase/index"
 import { MapSection } from "@/components/map-section"
@@ -31,9 +32,11 @@ function ThemeToggle() {
         <Button
             variant="ghost"
             size="icon"
-            onClick={() =>
-                setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
+            onClick={() => {
+                const next = resolvedTheme === "dark" ? "light" : "dark"
+                setTheme(next)
+                trackEvent("theme_toggle", { theme: next })
+            }}
             aria-label="Toggle theme"
         >
             {mounted && (
@@ -73,7 +76,16 @@ export default function Page() {
                         asChild
                     >
                         <span>
-                            <a href="#map">New Interactive Map</a>
+                            <a
+                                href="#map"
+                                onClick={() =>
+                                    trackEvent("scroll_to_section", {
+                                        section: "map",
+                                    })
+                                }
+                            >
+                                New Interactive Map
+                            </a>
                             <HugeiconsIcon
                                 icon={ArrowRight02Icon}
                                 strokeWidth={2}
@@ -94,7 +106,15 @@ export default function Page() {
                         explore the building blocks.
                     </p>
                     <div className="flex animate-in items-center gap-3 duration-700 [animation-delay:200ms] fade-in slide-in-from-bottom-4">
-                        <Button size="lg" asChild>
+                        <Button
+                            size="lg"
+                            asChild
+                            onClick={() =>
+                                trackEvent("scroll_to_section", {
+                                    section: "components",
+                                })
+                            }
+                        >
                             <a href="#components">
                                 Browse Components
                                 <HugeiconsIcon
@@ -109,6 +129,12 @@ export default function Page() {
                                 href="https://github.com/phalla-doll/shadcn-luma"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() =>
+                                    trackEvent("outbound_click", {
+                                        url: "github.com/phalla-doll/shadcn-luma",
+                                        label: "view_source",
+                                    })
+                                }
                             >
                                 <HugeiconsIcon
                                     icon={GithubIcon}
@@ -142,6 +168,12 @@ export default function Page() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                        onClick={() =>
+                            trackEvent("outbound_click", {
+                                url: "manthaa.dev",
+                                label: "mantha",
+                            })
+                        }
                     >
                         Mantha
                     </a>
