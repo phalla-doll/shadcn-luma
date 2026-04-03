@@ -30,29 +30,14 @@ export const metadata: Metadata = {
             "Discover curated UI components that feel good to use. Built with shadcn/ui, Radix, and Tailwind CSS v4.",
         url: "https://ui.manthaa.dev/",
         siteName: "UI",
-        images: [
-            {
-                url: "/ui-mantha-og-main.png",
-                width: 1200,
-                height: 630,
-                alt: "UI — Curated UI components",
-            },
-            {
-                url: "/logo-512.svg",
-                width: 512,
-                height: 512,
-                alt: "UI logo",
-            },
-        ],
         type: "website",
         locale: "en_US",
     },
     twitter: {
-        card: "summary",
+        card: "summary_large_image",
         title: "UI",
         description:
             "Discover curated UI components that feel good to use. Built with shadcn/ui, Radix, and Tailwind CSS v4.",
-        images: ["/logo-512.svg"],
     },
     metadataBase: new URL("https://ui.manthaa.dev/"),
 }
