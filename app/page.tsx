@@ -61,7 +61,7 @@ export default function Page() {
                 <header className="flex items-center justify-between">
                     <Logo />
                     <nav className="flex items-center gap-1">
-                        <p className="font-mono hidden md:block text-sm tracking-tight">
+                        <p className="hidden font-mono text-sm tracking-tight md:block">
                             Press <Kbd className="rounded-md">d</Kbd> to toggle
                             dark mode
                         </p>
