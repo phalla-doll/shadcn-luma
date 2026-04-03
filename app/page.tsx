@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { useTheme } from "next-themes"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
@@ -111,19 +112,19 @@ export default function Page() {
                             size="lg"
                             asChild
                             onClick={() =>
-                                trackEvent("scroll_to_section", {
-                                    section: "components",
+                                trackEvent("view_docs", {
+                                    location: "hero",
                                 })
                             }
                         >
-                            <a href="#components">
-                                Browse Components
+                            <Link href="/docs">
+                                View Documentation
                                 <HugeiconsIcon
                                     icon={ArrowRight01Icon}
                                     strokeWidth={2}
                                     data-icon="inline-end"
                                 />
-                            </a>
+                            </Link>
                         </Button>
                         <Button variant="outline" size="lg" asChild>
                             <a
