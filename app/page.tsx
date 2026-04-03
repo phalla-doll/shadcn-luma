@@ -153,7 +153,7 @@ export default function Page() {
             </div>
 
             <div id="map" className="scroll-mt-16 bg-muted/50 p-6 md:p-10">
-                <MapSection className="relative h-[65vh] overflow-hidden rounded-2xl" />
+                <MapSection className="relative h-[65vh] rounded-2xl" />
             </div>
 
             <div className="relative mx-auto mt-10 flex max-w-7xl justify-center px-6 pb-12">
