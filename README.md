@@ -15,16 +15,17 @@ Introducing Luma, a new shadcn/ui style inspired by macOS Tahoe (minus the glass
 
 ## Tech Stack
 
-| Layer       | Technology                                                                 |
-| ----------- | -------------------------------------------------------------------------- |
-| Framework   | [Next.js 16](https://nextjs.org/) with Turbopack                           |
-| Styling     | [Tailwind CSS v4](https://tailwindcss.com/)                                |
-| Primitives  | [Radix UI](https://radix-ui.com/) + [Base UI](https://base-ui.com/)        |
-| Icons       | [Hugeicons](https://hugeicons.com/)                                        |
-| Language    | [TypeScript](https://www.typescriptlang.org/)                              |
-| Font        | [Geist](https://vercel.com/font)                                           |
-| Color space | oklch                                                                      |
-| Maps        | [MapLibre GL](https://maplibre.org/) + [Protomaps](https://protomaps.com/) |
+| Layer       | Technology                                                                    |
+| ----------- | ----------------------------------------------------------------------------- |
+| Framework   | [Next.js 16](https://nextjs.org/) with Turbopack                              |
+| Styling     | [Tailwind CSS v4](https://tailwindcss.com/)                                   |
+| Primitives  | [Radix UI](https://radix-ui.com/) + [Base UI](https://base-ui.com/)           |
+| Icons       | [Hugeicons](https://hugeicons.com/)                                           |
+| Language    | [TypeScript](https://www.typescriptlang.org/)                                 |
+| Font        | [Geist](https://vercel.com/font)                                              |
+| Color space | oklch                                                                         |
+| Maps        | [MapLibre GL](https://maplibre.org/) + [Protomaps](https://protomaps.com/)    |
+| Analytics   | [Google Analytics 4](https://analytics.google.com/) via `@next/third-parties` |
 
 ## Components
 
@@ -50,6 +51,22 @@ This project includes built-in agent skills that provide AI coding assistants wi
 - **[frontend-design](./.agents/skills/frontend-design/SKILL.md)** — Design principles and workflows for creating production-grade frontend interfaces.
 
 Both skills are pinned in `skills-lock.json` for reproducibility.
+
+## Analytics
+
+Google Analytics 4 is integrated via `@next/third-parties/google`. Pageviews are tracked automatically on every route change (including client-side navigation).
+
+**Custom events** are tracked using the `trackEvent` helper from `lib/analytics.ts`:
+
+```tsx
+import { trackEvent } from "@/lib/analytics"
+
+trackEvent("button_click", { label: "signup" })
+```
+
+Tracked events include: `theme_toggle`, `scroll_to_section`, `outbound_click`, `search_open`, `location_select`, `listings_open`, `listing_select`, `map_marker_click`, `schedule_viewing`, `contact_call`, `view_detail`.
+
+**Setup:** Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in `.env.local`.
 
 ## Getting Started
 
