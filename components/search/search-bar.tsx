@@ -34,6 +34,7 @@ export function SearchBar({ onLocationSelectAction }: SearchBarProps) {
                 <PopoverTrigger asChild>
                     <Button
                         variant="outline"
+                        size="lg"
                         role="combobox"
                         aria-expanded={open}
                         className="w-full justify-between bg-background/95 backdrop-blur-sm"
