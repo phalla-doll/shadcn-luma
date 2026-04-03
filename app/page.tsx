@@ -75,23 +75,24 @@ export default function Page() {
                         className="animate-in cursor-pointer duration-500 fade-in"
                         asChild
                     >
-                        <span>
-                            <a
-                                href="#map"
-                                onClick={() =>
-                                    trackEvent("scroll_to_section", {
-                                        section: "map",
-                                    })
-                                }
-                            >
-                                New Interactive Map
-                            </a>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                document
+                                    .getElementById("map")
+                                    ?.scrollIntoView({ behavior: "smooth" })
+                                trackEvent("scroll_to_section", {
+                                    section: "map",
+                                })
+                            }}
+                        >
+                            <span>New Interactive Map</span>
                             <HugeiconsIcon
                                 icon={ArrowRight02Icon}
                                 strokeWidth={2}
                                 data-icon="inline-end"
                             />
-                        </span>
+                        </button>
                     </Badge>
                     <h1 className="max-w-3xl animate-in text-3xl leading-[1.1] font-medium tracking-tight duration-700 fade-in slide-in-from-bottom-4 md:text-5xl">
                         Discover curated UI components that{" "}
