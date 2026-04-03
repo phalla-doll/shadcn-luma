@@ -51,7 +51,7 @@ function ThemeToggle() {
 
 export default function Page() {
     return (
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen overflow-hidden">
             <div className="pointer-events-none absolute inset-0">
                 <div className="absolute top-1/4 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
                 <div className="absolute bottom-0 left-1/4 h-100 w-100 rounded-full bg-primary/3 blur-[100px]" />
