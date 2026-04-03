@@ -1,0 +1,80 @@
+---
+title: Theming
+description: Customize the look and feel of components using CSS variables and Tailwind CSS v4.
+---
+
+## CSS Variables
+
+All components use semantic CSS variables defined in `app/globals.css`. The theme supports both light and dark modes.
+
+### Light Mode
+
+```css
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --primary: oklch(0.488 0.243 264.376);
+    --primary-foreground: oklch(0.97 0.014 254.604);
+    --secondary: oklch(0.967 0.001 286.375);
+    --secondary-foreground: oklch(0.21 0.006 285.885);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --radius: 0.625rem;
+}
+```
+
+### Dark Mode
+
+```css
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --primary: oklch(0.424 0.199 265.638);
+    --primary-foreground: oklch(0.97 0.014 254.604);
+    --secondary: oklch(0.274 0.006 286.033);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --ring: oklch(0.556 0 0);
+}
+```
+
+## Color Palette
+
+The theme uses `oklch` color space for perceptually uniform colors. The primary color is a deep purple, providing a distinctive and modern aesthetic.
+
+## Customizing Colors
+
+To customize the theme, modify the CSS variables in `app/globals.css`. Each variable maps to a semantic token used across all components:
+
+| Variable        | Purpose                   |
+| --------------- | ------------------------- |
+| `--background`  | Page background           |
+| `--foreground`  | Default text color        |
+| `--primary`     | Primary actions           |
+| `--secondary`   | Secondary backgrounds     |
+| `--muted`       | Muted/subtle backgrounds  |
+| `--accent`      | Accent highlights         |
+| `--destructive` | Error/destructive actions |
+| `--border`      | Border color              |
+| `--ring`        | Focus ring color          |
+| `--radius`      | Base border radius        |
+
+## Dark Mode
+
+Dark mode is handled by `next-themes` via the `ThemeProvider` component. It automatically detects system preferences and allows manual toggling.
+
+```tsx
+import { ThemeProvider } from "@/components/theme-provider"
+
+;<ThemeProvider>{children}</ThemeProvider>
+```

@@ -1,0 +1,47 @@
+---
+title: Input
+description: Displays a form input field.
+---
+
+## Import
+
+```tsx
+import { Input } from "@/components/ui/input"
+```
+
+## Usage
+
+```tsx
+<Input placeholder="Enter your email" />
+```
+
+## Types
+
+The Input component supports all standard HTML input types:
+
+```tsx
+<Input type="email" placeholder="Email" />
+<Input type="password" placeholder="Password" />
+<Input type="number" placeholder="Amount" />
+<Input type="search" placeholder="Search..." />
+```
+
+## Disabled
+
+```tsx
+<Input disabled placeholder="Disabled input" />
+```
+
+## With Field
+
+Use the `Field` component for labels and validation:
+
+```tsx
+import { Field, FieldLabel, FieldError } from "@/components/ui/field"
+
+;<Field>
+    <FieldLabel>Email</FieldLabel>
+    <Input type="email" />
+    <FieldError>Enter a valid email address</FieldError>
+</Field>
+```

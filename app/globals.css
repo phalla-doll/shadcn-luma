@@ -1,7 +1,11 @@
 @import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "maplibre-gl/dist/maplibre-gl.css";
+
+@source "../node_modules/fumadocs-ui/dist/**/*.js";
 
 @custom-variant dark (&:is(.dark *));
 

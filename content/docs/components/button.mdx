@@ -1,0 +1,108 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+---
+
+## Import
+
+```tsx
+import { Button } from "@/components/ui/button"
+```
+
+## Usage
+
+```tsx
+<Button>Click me</Button>
+```
+
+## Variants
+
+The Button component comes with 6 built-in variants:
+
+### Default
+
+```tsx
+<Button variant="default">Default</Button>
+```
+
+### Outline
+
+```tsx
+<Button variant="outline">Outline</Button>
+```
+
+### Secondary
+
+```tsx
+<Button variant="secondary">Secondary</Button>
+```
+
+### Ghost
+
+```tsx
+<Button variant="ghost">Ghost</Button>
+```
+
+### Destructive
+
+```tsx
+<Button variant="destructive">Destructive</Button>
+```
+
+### Link
+
+```tsx
+<Button variant="link">Link</Button>
+```
+
+## Sizes
+
+The Button component supports the following sizes:
+
+| Size      | Height | Use Case               |
+| --------- | ------ | ---------------------- |
+| `xs`      | 24px   | Compact inline actions |
+| `sm`      | 32px   | Secondary actions      |
+| `default` | 36px   | Primary actions        |
+| `lg`      | 40px   | Hero/CTA buttons       |
+| `icon`    | 36px   | Icon-only buttons      |
+| `icon-xs` | 24px   | Small icon buttons     |
+| `icon-sm` | 32px   | Medium icon buttons    |
+| `icon-lg` | 40px   | Large icon buttons     |
+
+```tsx
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>
+<Button size="icon"><Icon /></Button>
+```
+
+## With Icons
+
+Icons use the `data-icon` attribute for proper spacing:
+
+```tsx
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ArrowRightIcon } from "@hugeicons/core-free-icons"
+
+;<Button>
+    <HugeiconsIcon icon={ArrowRightIcon} data-icon="inline-start" />
+    Continue
+</Button>
+```
+
+## As Child
+
+Use `asChild` to render the button styles on a different element:
+
+```tsx
+<Button asChild>
+    <a href="/link">Link Button</a>
+</Button>
+```
+
+## Disabled
+
+```tsx
+<Button disabled>Disabled</Button>
+```
