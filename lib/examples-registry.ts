@@ -3,6 +3,7 @@ export type Category =
     | "smart-home"
     | "music"
     | "empty-states"
+    | "map"
     | "general"
 
 export interface ExampleMeta {
@@ -17,6 +18,7 @@ export const CATEGORIES: Record<Category, string> = {
     "smart-home": "Smart Home",
     music: "Music",
     "empty-states": "Empty States",
+    map: "Map",
     general: "General",
 }
 
@@ -238,7 +240,7 @@ export const EXAMPLES: ExampleMeta[] = [
         title: "Map",
         description:
             "Interactive property map with markers and location search",
-        category: "general",
+        category: "map",
     },
 ]
 
@@ -247,6 +249,7 @@ export const CATEGORY_ORDER: Category[] = [
     "smart-home",
     "music",
     "empty-states",
+    "map",
     "general",
 ]
 
