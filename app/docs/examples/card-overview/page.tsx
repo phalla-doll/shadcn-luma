@@ -13,7 +13,7 @@ import { CreditCardIcon } from "@hugeicons/core-free-icons"
 
 export function CardOverview() {
     return (
-        <Card className="w-[300px]">
+        <Card className="w-75">
             <CardHeader>
                 <CardTitle className="text-base">Total Balance</CardTitle>
             </CardHeader>
