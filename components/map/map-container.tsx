@@ -132,8 +132,8 @@ export function MapContainer({
             map = new maplibregl.Map({
                 container: mapContainer.current,
                 style,
-                center: [104.9282, 11.5564],
-                zoom: 15,
+                center: [104.9162, 11.5564],
+                zoom: 14,
             })
 
             mapRef.current = map
@@ -219,7 +219,7 @@ export function MapContainer({
         if (selectedListing) {
             map.flyTo({
                 center: selectedListing.coordinates,
-                zoom: 15,
+                zoom: 14,
                 essential: true,
             })
 

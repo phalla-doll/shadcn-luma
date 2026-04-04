@@ -5,7 +5,7 @@ description: Customize the look and feel of components using CSS variables and T
 
 ## CSS Variables
 
-All components use semantic CSS variables defined in `app/globals.css`. The theme supports both light and dark modes.
+All components use semantic CSS variables defined in `app/globals.css`. The theme supports both light and dark modes. The snippets below are the main surface tokens; the file also defines **card**, **popover**, **input**, **chart-1…chart-5**, and **sidebar-\*** variables for layered UI and charts—always treat `globals.css` as the source of truth.
 
 ### Light Mode
 
@@ -23,6 +23,7 @@ All components use semantic CSS variables defined in `app/globals.css`. The them
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(0.577 0.245 27.325);
     --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
     --ring: oklch(0.708 0 0);
     --radius: 0.625rem;
 }
@@ -44,6 +45,7 @@ All components use semantic CSS variables defined in `app/globals.css`. The them
     --accent-foreground: oklch(0.985 0 0);
     --destructive: oklch(0.704 0.191 22.216);
     --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.556 0 0);
 }
 ```
@@ -56,25 +58,51 @@ The theme uses `oklch` color space for perceptually uniform colors. The primary 
 
 To customize the theme, modify the CSS variables in `app/globals.css`. Each variable maps to a semantic token used across all components:
 
-| Variable        | Purpose                   |
-| --------------- | ------------------------- |
-| `--background`  | Page background           |
-| `--foreground`  | Default text color        |
-| `--primary`     | Primary actions           |
-| `--secondary`   | Secondary backgrounds     |
-| `--muted`       | Muted/subtle backgrounds  |
-| `--accent`      | Accent highlights         |
-| `--destructive` | Error/destructive actions |
-| `--border`      | Border color              |
-| `--ring`        | Focus ring color          |
-| `--radius`      | Base border radius        |
+| Variable                   | Purpose                                      |
+| -------------------------- | -------------------------------------------- |
+| `--background`             | Page background                              |
+| `--foreground`             | Default text color                           |
+| `--primary`                | Primary actions                              |
+| `--primary-foreground`     | Text on primary                              |
+| `--secondary`              | Secondary backgrounds                        |
+| `--secondary-foreground`   | Text on secondary                            |
+| `--muted`                  | Muted/subtle backgrounds                     |
+| `--muted-foreground`       | Subdued text                                 |
+| `--accent`                 | Accent highlights                            |
+| `--accent-foreground`      | Text on accent                               |
+| `--destructive`            | Error/destructive actions                    |
+| `--border`                 | Border color                                 |
+| `--input`                  | Input borders (often aligned with borders) |
+| `--ring`                   | Focus ring color                             |
+| `--card` / `--card-foreground` | Card surfaces and text                   |
+| `--popover` / `--popover-foreground` | Popovers, dropdowns, tooltips      |
+| `--chart-1` … `--chart-5`  | Chart series colors                          |
+| `--sidebar-*`              | Sidebar chrome (see `globals.css`)           |
+| `--radius`                 | Base border radius                           |
 
-## Dark Mode
+## Tailwind CSS v4
 
-Dark mode is handled by `next-themes` via the `ThemeProvider` component. It automatically detects system preferences and allows manual toggling.
+`app/globals.css` uses `@theme inline` to expose these CSS variables as Tailwind utilities (for example `bg-background`, `text-primary`). The `dark` variant is wired with `@custom-variant dark (&:is(.dark *));` so nested components inherit the active theme when the root has the `dark` class.
+
+## Dark mode
+
+Dark mode is handled by `next-themes` via the `ThemeProvider` in `app/layout.tsx`. It uses `attribute="class"`, `defaultTheme="system"`, and `enableSystem`, so the `html` element gets `class="dark"` when appropriate and the `.dark { … }` variables apply. Press `d` (when not typing in a field) to toggle light/dark.
 
 ```tsx
 import { ThemeProvider } from "@/components/theme-provider"
 
-;<ThemeProvider>{children}</ThemeProvider>
+// Simplified—the real root layout also applies fonts and optional analytics.
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode
+}) {
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body>
+                <ThemeProvider>{children}</ThemeProvider>
+            </body>
+        </html>
+    )
+}
 ```

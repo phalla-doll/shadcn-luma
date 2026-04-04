@@ -1,0 +1,178 @@
+---
+title: Composition
+description: Patterns for grouping primitives, overlays, cards, feedback, and loading UI when building with shadcn/ui in this project.
+---
+
+Following these composition rules keeps layouts predictable, improves accessibility, and avoids one-off markup that drifts from the design system. They apply to new features and when extending existing components.
+
+Want a portable copy for your repo or internal docs? [Download this guide as Markdown](/api/docs/composition).
+
+## Grouping menu-like UIs
+
+Never render items directly inside the content container without a group wrapper.
+
+**Incorrect:**
+
+```tsx
+<SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana</SelectItem>
+</SelectContent>
+```
+
+**Correct:**
+
+```tsx
+<SelectContent>
+    <SelectGroup>
+        <SelectItem value="apple">Apple</SelectItem>
+        <SelectItem value="banana">Banana</SelectItem>
+    </SelectGroup>
+</SelectContent>
+```
+
+This applies to all group-based components:
+
+| Item                                                         | Group              |
+| ------------------------------------------------------------ | ------------------ |
+| `SelectItem`, `SelectLabel`                                  | `SelectGroup`      |
+| `DropdownMenuItem`, `DropdownMenuLabel`, `DropdownMenuSub`   | `DropdownMenuGroup` |
+| `MenubarItem`                                                | `MenubarGroup`     |
+| `ContextMenuItem`                                            | `ContextMenuGroup` |
+| `CommandItem`                                                | `CommandGroup`     |
+
+## Card structure
+
+Use full composition — do not put everything in `CardContent` alone:
+
+```tsx
+<Card>
+    <CardHeader>
+        <CardTitle>Team Members</CardTitle>
+        <CardDescription>Manage your team.</CardDescription>
+    </CardHeader>
+    <CardContent>...</CardContent>
+    <CardFooter>
+        <Button>Invite</Button>
+    </CardFooter>
+</Card>
+```
+
+## Tabs
+
+`TabsTrigger` must live inside `TabsList`. Never place triggers directly under `Tabs`:
+
+```tsx
+<Tabs defaultValue="account">
+    <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+    </TabsList>
+    <TabsContent value="account">...</TabsContent>
+</Tabs>
+```
+
+## Choosing overlay components
+
+| Use case                         | Component    |
+| -------------------------------- | ------------ |
+| Focused task that requires input | `Dialog`     |
+| Destructive action confirmation  | `AlertDialog` |
+| Side panel with details or filters | `Sheet`    |
+| Mobile-first bottom panel        | `Drawer`     |
+| Quick info on hover              | `HoverCard`  |
+| Small contextual content on click | `Popover`   |
+
+## Dialog, Sheet, and Drawer titles
+
+`DialogTitle`, `SheetTitle`, and `DrawerTitle` are required for accessibility. Use `className="sr-only"` when the title should not be visible.
+
+```tsx
+<DialogContent>
+    <DialogHeader>
+        <DialogTitle>Edit Profile</DialogTitle>
+        <DialogDescription>Update your profile.</DialogDescription>
+    </DialogHeader>
+    ...
+</DialogContent>
+```
+
+## Callouts
+
+Use `Alert` for inline callouts:
+
+```tsx
+<Alert>
+    <AlertTitle>Warning</AlertTitle>
+    <AlertDescription>Something needs attention.</AlertDescription>
+</Alert>
+```
+
+## Empty states
+
+Use the `Empty` component and its subcomponents:
+
+```tsx
+<Empty>
+    <EmptyHeader>
+        <EmptyMedia variant="icon">
+            <FolderIcon />
+        </EmptyMedia>
+        <EmptyTitle>No projects yet</EmptyTitle>
+        <EmptyDescription>
+            Get started by creating a new project.
+        </EmptyDescription>
+    </EmptyHeader>
+    <EmptyContent>
+        <Button>Create Project</Button>
+    </EmptyContent>
+</Empty>
+```
+
+## Toast notifications
+
+Use `sonner` for toasts:
+
+```tsx
+import { toast } from "sonner"
+
+toast.success("Changes saved.")
+toast.error("Something went wrong.")
+toast("File deleted.", {
+    action: { label: "Undo", onClick: () => undoDelete() },
+})
+```
+
+## Buttons and loading state
+
+`Button` has no `isPending` or `isLoading` prop. Compose with `Spinner`, `data-icon`, and `disabled`:
+
+```tsx
+<Button disabled>
+    <Spinner data-icon="inline-start" />
+    Saving...
+</Button>
+```
+
+## Avatars
+
+Always include `AvatarFallback` for when the image fails to load:
+
+```tsx
+<Avatar>
+    <AvatarImage src="/avatar.png" alt="User" />
+    <AvatarFallback>JD</AvatarFallback>
+</Avatar>
+```
+
+## Prefer primitives over custom markup
+
+| Instead of                                           | Use                                  |
+| ---------------------------------------------------- | ------------------------------------ |
+| `<hr>` or `<div className="border-t">`               | `<Separator />`                      |
+| `<div className="animate-pulse">` with styled divs   | `<Skeleton className="h-4 w-3/4" />` |
+| `<span className="rounded-full bg-green-100 ...">` | `<Badge variant="secondary">`        |
+
+## See also
+
+Browse [ready-made component examples](/docs/components) for specimens that follow these patterns end to end.
