@@ -1,7 +1,7 @@
 import { docs } from "../.source/server"
 import { loader } from "fumadocs-core/source"
 import type { Folder, Item, Root } from "fumadocs-core/page-tree"
-import { CATEGORIES, CATEGORY_ORDER, EXAMPLES } from "./examples-registry"
+import { EXAMPLES } from "./examples-registry"
 
 export const source = loader({
     baseUrl: "/docs",
@@ -26,22 +26,15 @@ export function getPageTree(): Root {
                     url: "/docs/examples",
                 },
                 children: [
-                    ...CATEGORY_ORDER.map(
-                        (cat): Folder => ({
-                            type: "folder",
-                            name: CATEGORIES[cat],
-                            defaultOpen: false,
-                            children: EXAMPLES.filter(
-                                (e) => e.category === cat
-                            ).map(
-                                (example): Item => ({
-                                    type: "page",
-                                    name: example.title,
-                                    url: `/docs/examples/${example.slug}`,
-                                })
-                            ),
-                        })
-                    ),
+                    ...[...EXAMPLES]
+                        .sort((a, b) => a.title.localeCompare(b.title))
+                        .map(
+                            (example): Item => ({
+                                type: "page",
+                                name: example.title,
+                                url: `/docs/examples/${example.slug}`,
+                            })
+                        ),
                 ],
             } satisfies Folder
         }
