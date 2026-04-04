@@ -45,7 +45,7 @@ export default function Page() {
                 <CodeViewer
                     component={<CardOverview />}
                     code={code}
-                    maxWidth={false}
+                    maxWidth={"md"}
                 />
             </DocsBody>
         </DocsPage>
