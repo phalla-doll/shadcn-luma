@@ -29,7 +29,12 @@ function Preview({
 }) {
     return (
         <div className="flex items-center justify-center rounded-md border bg-background p-8">
-            <div className={cn("w-full", maxWidth && maxWidthMap[maxWidth])}>
+            <div
+                className={cn(
+                    "not-prose w-full",
+                    maxWidth && maxWidthMap[maxWidth]
+                )}
+            >
                 {children}
             </div>
         </div>

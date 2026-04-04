@@ -84,7 +84,11 @@ export default function Page() {
             <DocsTitle>Upcoming Payments</DocsTitle>
             <DocsDescription>Upcoming payments with calendar</DocsDescription>
             <DocsBody>
-                <CodeViewer component={<UpcomingPayments />} code={code} />
+                <CodeViewer
+                    component={<UpcomingPayments />}
+                    code={code}
+                    maxWidth="sm"
+                />
             </DocsBody>
         </DocsPage>
     )
