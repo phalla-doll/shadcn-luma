@@ -69,7 +69,11 @@ export default function Page() {
                 Album card with cover art and streaming stats
             </DocsDescription>
             <DocsBody>
-                <CodeViewer component={<AlbumCard />} code={code} />
+                <CodeViewer
+                    component={<AlbumCard />}
+                    code={code}
+                    maxWidth="sm"
+                />
             </DocsBody>
         </DocsPage>
     )
