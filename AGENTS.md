@@ -40,7 +40,7 @@ When working with shadcn/ui components, always follow the official documentation
 
 ## Running a Single Test
 
-No test runner is installed. If tests are added in the future, configure vitest or similar and update this section.
+- Use `agent-browser` skill for testing and verfiying UI changes when necessary. Don't have to run at every changes.
 
 ## Project Structure
 
