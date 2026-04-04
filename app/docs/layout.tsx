@@ -2,6 +2,7 @@
 
 import { HugeiconsIcon } from "@hugeicons/react"
 import { GithubIcon } from "@hugeicons/core-free-icons"
+import { Logo } from "@/components/logo"
 import { getPageTree } from "@/lib/source"
 import { DocsLayout } from "fumadocs-ui/layouts/docs"
 import { RootProvider } from "fumadocs-ui/provider/next"
@@ -14,7 +15,14 @@ export default function DocsRootLayout({ children }: { children: ReactNode }) {
         <RootProvider>
             <DocsLayout
                 tree={getPageTree()}
-                nav={{ title: "UI Components" }}
+                nav={{
+                    title: (
+                        <span className="inline-flex items-center gap-2">
+                            <Logo className="size-6 shrink-0" />
+                            UI Components
+                        </span>
+                    ),
+                }}
                 links={[
                     {
                         type: "icon",
