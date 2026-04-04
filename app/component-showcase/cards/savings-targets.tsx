@@ -32,7 +32,7 @@ import { Progress } from "@/components/ui/progress"
 
 export function SavingsTargets() {
     return (
-        <div className="grid grid-cols-2 gap-(--gap)">
+        <div className="grid grid-cols-2 gap-4">
             <Card>
                 <CardHeader>
                     <CardTitle>Savings Targets</CardTitle>
