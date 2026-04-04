@@ -1,0 +1,135 @@
+import {
+    DocsPage,
+    DocsBody,
+    DocsTitle,
+    DocsDescription,
+} from "fumadocs-ui/layouts/docs/page"
+import { CodeViewer } from "@/components/code-viewer"
+import { SocialLinks } from "@/app/component-showcase/cards/social-links"
+
+const code = `import { Button } from "@/components/ui/button"
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
+import {
+    InputGroup,
+    InputGroupAddon,
+    InputGroupInput,
+} from "@/components/ui/input-group"
+import { IconPlaceholder } from "@/components/icon-placeholder"
+
+export function SocialLinks() {
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Social Links</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <FieldGroup>
+                    <Field>
+                        <FieldLabel htmlFor="spotify-url">
+                            Spotify Artist URL
+                        </FieldLabel>
+                        <InputGroup>
+                            <InputGroupAddon>
+                                <IconPlaceholder
+                                    lucide="CirclePlusIcon"
+                                    tabler="IconCirclePlus"
+                                    hugeicons="PlusSignCircleIcon"
+                                    phosphor="PlusCircleIcon"
+                                    remixicon="RiAddCircleLine"
+                                />
+                            </InputGroupAddon>
+                            <InputGroupInput
+                                id="spotify-url"
+                                defaultValue="spotify.com/artist/3j...2k"
+                            />
+                        </InputGroup>
+                    </Field>
+                    <Field>
+                        <FieldLabel htmlFor="instagram-handle">
+                            Instagram Handle
+                        </FieldLabel>
+                        <InputGroup>
+                            <InputGroupAddon>
+                                <IconPlaceholder
+                                    lucide="CameraIcon"
+                                    tabler="IconCamera"
+                                    hugeicons="Camera01Icon"
+                                    phosphor="CameraIcon"
+                                    remixicon="RiCameraLine"
+                                />
+                            </InputGroupAddon>
+                            <InputGroupInput
+                                id="instagram-handle"
+                                defaultValue="@julianduryea_music"
+                            />
+                        </InputGroup>
+                    </Field>
+                    <Field>
+                        <FieldLabel htmlFor="soundcloud-url">
+                            SoundCloud URL
+                        </FieldLabel>
+                        <InputGroup>
+                            <InputGroupAddon>
+                                <IconPlaceholder
+                                    lucide="CloudIcon"
+                                    tabler="IconCloud"
+                                    hugeicons="CloudUploadIcon"
+                                    phosphor="CloudIcon"
+                                    remixicon="RiCloudLine"
+                                />
+                            </InputGroupAddon>
+                            <InputGroupInput
+                                id="soundcloud-url"
+                                placeholder="soundcloud.com/username"
+                            />
+                        </InputGroup>
+                    </Field>
+                    <Field>
+                        <FieldLabel htmlFor="website-url">Website</FieldLabel>
+                        <InputGroup>
+                            <InputGroupAddon>
+                                <IconPlaceholder
+                                    lucide="GlobeIcon"
+                                    tabler="IconWorld"
+                                    hugeicons="Globe02Icon"
+                                    phosphor="GlobeIcon"
+                                    remixicon="RiGlobalLine"
+                                />
+                            </InputGroupAddon>
+                            <InputGroupInput
+                                id="website-url"
+                                placeholder="https://yoursite.com"
+                            />
+                        </InputGroup>
+                    </Field>
+                </FieldGroup>
+            </CardContent>
+            <CardFooter className="justify-end gap-2">
+                <Button variant="secondary">Discard</Button>
+                <Button>Save Changes</Button>
+            </CardFooter>
+        </Card>
+    )
+}
+`
+
+export default function Page() {
+    return (
+        <DocsPage>
+            <DocsTitle>Social Links</DocsTitle>
+            <DocsDescription>
+                Social links form with input groups
+            </DocsDescription>
+            <DocsBody>
+                <CodeViewer component={<SocialLinks />} code={code} />
+            </DocsBody>
+        </DocsPage>
+    )
+}
