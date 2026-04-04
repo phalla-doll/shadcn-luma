@@ -7,7 +7,7 @@ export type Location = {
 export const locations: Location[] = [
     {
         name: "All Phnom Penh",
-        coordinates: [104.9282, 11.5564],
+        coordinates: [104.9162, 11.5564],
         zoom: 12,
     },
     {
