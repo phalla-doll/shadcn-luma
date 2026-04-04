@@ -10,8 +10,8 @@ const create = browser<
 >()
 const browserCollections = {
     docs: create.doc("docs", {
-        "examples.mdx": () =>
-            import("../content/docs/examples.mdx?collection=docs"),
+        "components.mdx": () =>
+            import("../content/docs/components.mdx?collection=docs"),
         "index.mdx": () => import("../content/docs/index.mdx?collection=docs"),
         "installation.mdx": () =>
             import("../content/docs/installation.mdx?collection=docs"),

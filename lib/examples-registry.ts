@@ -233,6 +233,13 @@ export const EXAMPLES: ExampleMeta[] = [
         description: "Upcoming payments with calendar",
         category: "finance",
     },
+    {
+        slug: "map",
+        title: "Map",
+        description:
+            "Interactive property map with markers and location search",
+        category: "general",
+    },
 ]
 
 export const CATEGORY_ORDER: Category[] = [

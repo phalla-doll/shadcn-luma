@@ -7,11 +7,11 @@ import {
     getExamplesByCategory,
 } from "@/lib/examples-registry"
 
-export default function ExamplesPage() {
+export default function ComponentsPage() {
     return (
         <DocsPage>
             <DocsBody>
-                <h1>Examples</h1>
+                <h1>Components</h1>
                 <p className="text-muted-foreground">
                     Browse {EXAMPLES.length} component examples organized by
                     category. Use the sidebar to navigate.
@@ -29,7 +29,7 @@ export default function ExamplesPage() {
                                     {examples.map((example) => (
                                         <Link
                                             key={example.slug}
-                                            href={`/docs/examples/${example.slug}`}
+                                            href={`/docs/components/${example.slug}`}
                                             className="rounded-lg border p-4 no-underline transition-colors hover:border-foreground/20 hover:bg-muted/50"
                                         >
                                             <span className="text-sm font-medium">
