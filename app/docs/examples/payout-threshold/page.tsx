@@ -141,7 +141,11 @@ export default function Page() {
                 Payout threshold settings with slider
             </DocsDescription>
             <DocsBody>
-                <CodeViewer component={<PayoutThreshold />} code={code} />
+                <CodeViewer
+                    component={<PayoutThreshold />}
+                    code={code}
+                    maxWidth="lg"
+                />
             </DocsBody>
         </DocsPage>
     )
